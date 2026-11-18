@@ -3,7 +3,17 @@ name: Find leads + build demo sites
 on:
   schedule:
     - cron: "30 3 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      only_city:
+        description: "Only this city (e.g. Pune). Empty = config enabled_cities / all"
+        required: false
+        default: ""
+      regen_pitches:
+        description: "Rebuild pitch + WhatsApp links for all leads"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -20,8 +30,12 @@ jobs:
         with:
           python-version: "3.12"
       - name: Find leads
+        env:
+          ONLY_CITY: ${{ github.event.inputs.only_city }}
         run: python scripts/finder.py
       - name: Generate demo sites
+        env:
+          REGEN_PITCHES: ${{ github.event.inputs.regen_pitches }}
         run: python scripts/generate.py
       - name: Commit
         run: |

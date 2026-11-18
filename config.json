@@ -3,6 +3,7 @@
   "seller_contact": "",
   "max_new_leads_per_run": 60,
   "radius_m": 9000,
+  "enabled_cities": [],
   "markets": {
     "IN": {"cc": "91", "currency": "₹", "price": "2,500", "lang": "hinglish",
            "cities": [["Mumbai",19.076,72.8777],["Delhi",28.6139,77.209],["Bengaluru",12.9716,77.5946],["Pune",18.5204,73.8567],["Hyderabad",17.385,78.4867],["Lucknow",26.8467,80.9462],["Jaipur",26.9124,75.7873],["Ahmedabad",23.0225,72.5714]]},

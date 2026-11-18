@@ -82,6 +82,12 @@ def main():
     cap = CFG["max_new_leads_per_run"]
     new = []
     allc = [(mk, c) for mk, m in CFG["markets"].items() for c in m["cities"]]
+    only = os.environ.get("ONLY_CITY", "").strip().lower()
+    enabled = [x.lower() for x in CFG.get("enabled_cities", [])]
+    if only: allc = [x for x in allc if x[1][0].lower() == only]
+    elif enabled: allc = [x for x in allc if x[1][0].lower() in enabled]
+    if not allc:
+        print("NO CITY MATCHED (check ONLY_CITY / enabled_cities)"); return
     off = int(time.time() // 86400) % len(allc)
     for mk, c in allc[off:] + allc[:off]:
         if len(new) >= cap: break

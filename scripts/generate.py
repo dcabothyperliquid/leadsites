@@ -55,7 +55,13 @@ def pitch(l, url):
 def main():
     leads = json.load(open("data/leads.json"))
     made = 0
+    regen = os.environ.get("REGEN_PITCHES", "").lower() in ("1", "true", "yes")
     for l in leads:
+        if l.get("url") and regen:   # seller name / price changed -> rebuild pitch + wa link, keep the demo page
+            l["pitch"] = pitch(l, l["url"])
+            l["wa"] = f'https://wa.me/{l["phone"]}?text=' + urllib.parse.quote(l["pitch"])
+            made += 1
+            continue
         if l.get("url"): continue
         s = slug(l)
         d = f"docs/s/{s}"; os.makedirs(d, exist_ok=True)
