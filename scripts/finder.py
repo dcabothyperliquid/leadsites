@@ -31,8 +31,7 @@ def fetch(q):
                 time.sleep(8)
     return []
 
-def norm_phone(raw, cc):
-    p = re.split(r"[;,/]", raw)[0].strip()
+def to_intl(p, cc):
     plus = p.startswith("+")
     d = re.sub(r"\D", "", p)
     if not d: return None
@@ -41,6 +40,31 @@ def norm_phone(raw, cc):
     elif d.startswith(cc) and len(d) > 10: n = d
     else: n = cc + d.lstrip("0")
     return n if 10 <= len(n) <= 13 else None
+
+def is_mobile(n, market):
+    """WhatsApp works on mobiles only; landlines are skipped."""
+    if market == "IN": return n.startswith("91") and len(n) == 12 and n[2] in "6789"
+    if market == "AU": return n.startswith("614") and len(n) == 11
+    return True  # US numbers: cannot tell line type from the number
+
+def norm_phone(raw, cc, market):
+    """First WhatsApp-capable number among all numbers listed on the place."""
+    for p in re.split(r"[;,/]", raw):
+        n = to_intl(p.strip(), cc)
+        if n and is_mobile(n, market): return n
+    return None
+
+def clean(leads):
+    """Drop leads whose number is not a mobile (older runs kept landlines) + delete their demo pages."""
+    import shutil
+    keep, dropped = [], 0
+    for l in leads:
+        if is_mobile(l["phone"], l["market"]): keep.append(l); continue
+        dropped += 1
+        if l.get("url"):
+            shutil.rmtree("docs/s/" + l["url"].rstrip("/").split("/")[-1], ignore_errors=True)
+    print(f"CLEAN dropped={dropped}")
+    return keep
 
 def category(tags):
     for k in ("shop", "amenity", "craft", "leisure"):
@@ -53,6 +77,7 @@ def category(tags):
 
 def main():
     leads = json.load(open(LEADS_PATH)) if os.path.exists(LEADS_PATH) else []
+    leads = clean(leads)
     seen = {l["id"] for l in leads}
     cap = CFG["max_new_leads_per_run"]
     new = []
@@ -67,7 +92,7 @@ def main():
         print(f"  {len(els)} raw elements")
         for e in els:
             t = e.get("tags", {})
-            ph = norm_phone(t.get("phone", ""), market["cc"])
+            ph = norm_phone(t.get("phone", ""), market["cc"], mk)
             if not ph or not t.get("name"): continue
             lid = hashlib.md5(f'{e["type"]}{e["id"]}'.encode()).hexdigest()[:10]
             if lid in seen: continue
