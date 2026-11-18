@@ -1,0 +1,33 @@
+name: Find leads + build demo sites
+
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency: leads
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Find leads
+        run: python scripts/finder.py
+      - name: Generate demo sites
+        run: python scripts/generate.py
+      - name: Commit
+        run: |
+          git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "nothing new" && exit 0
+          git commit -qm "leads: $(date -u +%F)"
+          git pull --rebase -q || true
+          git push
