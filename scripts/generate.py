@@ -6,7 +6,7 @@ CFG = json.load(open("config.json"))
 OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
 USER, REPO = OWNER_REPO.split("/")
 BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "11"   # bump to rebuild every page + pitch
+VER = "12"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -69,6 +69,95 @@ def style_key(l):
     if l.get("niche") == "clinic" and l.get("sub") == "Dental Clinic": return "dental"
     return l.get("niche") if l.get("niche") in NICHE else "restaurant"
 
+# ── per-niche look: layout family, font, corner radius, hero background ──
+THEME = {
+ "salon":      dict(cls="split", font="Georgia,'Times New Roman',serif", r=24, bg="#fdf2f8"),
+ "bakery":     dict(cls="split", font="Georgia,'Times New Roman',serif", r=28, bg="#fffbeb"),
+ "clinic":     dict(cls="clean", font="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif", r=14, bg="#f0f9ff"),
+ "dental":     dict(cls="clean", font="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif", r=20, bg="#ecfeff"),
+ "restaurant": dict(cls="dark", font="Georgia,'Times New Roman',serif", r=10, bg="#1a0f0a"),
+ "garage":     dict(cls="dark bold", font="'Segoe UI',Roboto,Arial,sans-serif", r=6, bg="#111827"),
+ "gym":        dict(cls="dark bold", font="'Segoe UI',Roboto,Arial,sans-serif", r=6, bg="#0b1f1e"),
+}
+
+CSS = """
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);color:#1f2937;background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}h1,h2,.mi b,summary{font-family:var(--f)}
+.exp{background:#111827;color:#fde68a;text-align:center;font-size:12.5px;padding:7px 12px}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #eee}
+.bar b{flex:1;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.pill:hover{transform:translateY(-2px);filter:brightness(1.05)}.pill:active{transform:translateY(0)}
+.p-call{background:var(--c);color:#fff}.p-wa{background:#25d366;color:#fff}.p-ghost{background:#fff;color:var(--d);border:1px solid #e5e7eb}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--bg);background-size:cover;background-position:center}
+.hero-in{max-width:960px;margin:0 auto;padding:34px 18px 38px;display:grid;gap:26px;align-items:center}
+.kick{display:inline-block;padding:5px 14px;border-radius:999px;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--l);color:var(--d);border:1px solid rgba(0,0,0,.06)}
+.hero h1{margin:14px 0 8px;font-size:clamp(32px,8vw,54px);line-height:1.08;color:var(--d)}
+.hero p{margin:0;max-width:480px;font-size:17px;color:#4b5563}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.cta .pill{padding:13px 22px;font-size:16px;box-shadow:0 10px 26px rgba(0,0,0,.16)}
+.chips{list-style:none;margin:22px 0 0;padding:0;display:flex;gap:8px;flex-wrap:wrap}
+.chips li{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,.08);color:var(--d)}
+.chips li:before{content:"✓ ";color:var(--c)}
+.art{justify-self:center;width:min(70vw,300px);aspect-ratio:1;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;position:relative}
+.art b{font-size:clamp(70px,22vw,110px);line-height:1;position:relative;z-index:1;animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-8px)}}
+@media(min-width:760px){.hero-in{grid-template-columns:1.25fr .75fr;padding:56px 18px 60px}.art{width:300px}}
+/* split: soft arch with rings (salon, bakery) */
+.h-split .art{border-radius:999px 999px 28px 28px;background-color:var(--l);box-shadow:0 0 0 12px rgba(255,255,255,.7),0 0 0 13px var(--c),0 24px 50px rgba(0,0,0,.12)}
+.h-split{background:linear-gradient(180deg,var(--bg),#fff)}
+.h-split h1{font-style:italic;font-weight:400}
+/* clean: bright, trust chips, round art (clinic, dental) */
+.h-clean .art{border-radius:50%;background-color:#fff;box-shadow:0 0 0 14px rgba(255,255,255,.8),0 24px 50px rgba(3,105,161,.15)}
+.h-clean{background:radial-gradient(900px 300px at 85% 0,#fff,transparent 70%),var(--bg)}
+.h-clean h1{font-weight:800}
+/* dark: restaurant, garage, gym */
+.h-dark{color:#fff}.h-dark h1{color:#fff}.h-dark p{color:rgba(255,255,255,.82)}
+.h-dark .kick{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+.h-dark .chips li{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}
+.h-dark .art{border-radius:20px;background-color:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18)}
+.h-dark:before{content:"";position:absolute;inset:0;background:radial-gradient(700px 320px at 90% 0,var(--c),transparent 65%);opacity:.55}
+.h-dark .hero-in{position:relative}
+.h-bold h1{text-transform:uppercase;letter-spacing:.01em;font-weight:900}.h-bold .kick{border-radius:4px}.h-bold .pill{border-radius:6px}
+.hp{background-blend-mode:normal}
+/* sections */
+section{padding:26px 0 2px}h2{margin:0 0 14px;font-size:24px;color:var(--d)}
+.sec-bold h2{text-transform:uppercase;letter-spacing:.03em}
+.note{font-size:12px;color:#6b7280;margin:10px 0 0}
+.mn{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.mi{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;background:var(--l);border-radius:var(--r);transition:transform .18s ease,box-shadow .18s ease}
+.mi:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.mi b{display:block;font-size:15.5px}.mi span{font-size:13px;color:#6b7280}.mi em{font-style:normal;font-weight:700;color:var(--d);white-space:nowrap;font-size:15px}
+.t-restaurant .mn{grid-template-columns:1fr;gap:0}
+.t-restaurant .mi{background:none;border-radius:0;border-bottom:1px dashed #d6c3b3;padding:14px 2px}.t-restaurant .mi:hover{transform:none;box-shadow:none;background:var(--l)}
+.t-garage .mi,.t-gym .mi{border-left:5px solid var(--c);background:#f3f4f6}
+.stp{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.stp div{display:flex;gap:12px;align-items:flex-start;padding:15px;border:1px solid #eee;border-radius:var(--r);transition:transform .18s ease,box-shadow .18s ease}
+.stp div:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.07)}
+.stp i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.stp b{display:block;font-size:15px}.stp span{font-size:13.5px;color:#6b7280}
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.gl img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r);display:block;transition:transform .25s ease}.gl img:hover{transform:scale(1.03)}
+details{border-top:1px solid #eee;padding:13px 0}details:last-of-type{border-bottom:1px solid #eee}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;font-size:15.5px}summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--c);font-weight:700;transition:transform .2s}details[open] summary:after{content:"–"}
+details p{margin:8px 0 0;color:#6b7280;font-size:14.5px}
+.info{display:grid;gap:12px}.info .row{background:var(--l);border-radius:var(--r);padding:14px 16px}
+.info small{display:block;color:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-bottom:2px}
+.map{margin-top:14px;border-radius:var(--r);overflow:hidden;border:1px solid #eee}.map iframe{display:block;width:100%;height:240px;border:0}
+.final{margin:26px 0 0;background:linear-gradient(135deg,var(--c),var(--d));color:#fff;text-align:center;padding:30px 18px}
+.final h2{color:#fff;margin-bottom:4px}.final .cta{justify-content:center}.final .p-wa{box-shadow:0 10px 26px rgba(0,0,0,.25)}
+footer{text-align:center;font-size:12px;color:#6b7280;padding:16px 16px 92px}
+/* sticky booking bar (mobile) */
+.sb{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid #e5e7eb;box-shadow:0 -8px 24px rgba(0,0,0,.08)}
+.sb .pill{flex:1;justify-content:center;padding:13px 10px;font-size:15px}
+@media(min-width:760px){.sb{left:auto;right:18px;bottom:18px;border:0;background:none;box-shadow:none;padding:0;backdrop-filter:none}.sb .pill{flex:none;padding:14px 22px;box-shadow:0 10px 28px rgba(0,0,0,.25)}.sb .p-ghost{display:none}}
+/* scroll reveal (only when JS runs) */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+"""
+
 TPL = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -77,63 +166,25 @@ TPL = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta property="og:title" content="{name}"><meta property="og:description" content="{tag}">
 <meta name="theme-color" content="{c}">
 <script type="application/ld+json">{ld}</script>
-<style>
-:root{{--c:{c};--d:{d};--l:{l}}}*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}
-body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1f2937;background:#fff;line-height:1.55}}
-a{{color:inherit}}
-.exp{{background:#111827;color:#fde68a;text-align:center;font-size:12.5px;padding:7px 12px}}
-.bar{{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #eee}}
-.bar b{{flex:1;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
-.pill{{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none}}
-.p-call{{background:var(--c);color:#fff}}.p-wa{{background:#25d366;color:#fff}}.p-ghost{{background:#fff;color:var(--d);border:1px solid #e5e7eb}}
-.hero{{background:radial-gradient(1200px 400px at 80% -10%,rgba(255,255,255,.22),transparent 60%),linear-gradient(135deg,var(--c),var(--d));color:#fff;padding:30px 18px 32px;text-align:center}}
-.hero .em{{font-size:32px}}.hero .kick{{display:inline-block;margin:10px 0 0;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12.5px;font-weight:600;letter-spacing:.04em}}
-.hero h1{{margin:8px auto 6px;max-width:640px;font-size:clamp(28px,7vw,44px);line-height:1.15}}
-.hero p{{margin:0 auto;max-width:520px;opacity:.92;font-size:17px}}
-.cta{{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}}
-.cta .pill{{padding:12px 22px;font-size:16px;box-shadow:0 8px 24px rgba(0,0,0,.18)}}
-.cta .p-ghost{{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);box-shadow:none}}
-.wrap{{max-width:760px;margin:0 auto;padding:0 18px}}
-section{{padding:22px 0 2px}}h2{{margin:0 0 12px;font-size:22px;color:var(--d)}}
-.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}}
-.card{{background:var(--l);border-radius:16px;padding:12px 10px;text-align:center;font-weight:600}}
-.card i{{display:block;font-style:normal;font-size:28px;margin-bottom:6px}}
-.note{{font-size:12px;color:#6b7280;margin:10px 0 0}}
-.why{{display:grid;gap:12px}}.why div{{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:1px solid #eee;border-radius:14px}}
-.why i{{font-style:normal;font-size:26px}}.why b{{display:block}}.why span{{font-size:14px;color:#6b7280}}
-.info{{display:grid;gap:12px}}.info .row{{background:var(--l);border-radius:14px;padding:14px 16px}}.info small{{display:block;color:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-bottom:2px}}
-.map{{margin-top:14px;border-radius:16px;overflow:hidden;border:1px solid #eee}}.map iframe{{display:block;width:100%;height:240px;border:0}}
-.final{{margin:22px 0 0;background:linear-gradient(135deg,var(--c),var(--d));color:#fff;text-align:center;padding:24px 18px}}
-.final h2{{color:#fff}}.final .cta{{margin-top:14px}}
-footer{{text-align:center;font-size:12px;color:#6b7280;padding:16px 16px 84px}}
-.fab{{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.28)}}
-.mn{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}}
-.mi{{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 15px;background:var(--l);border-radius:14px}}
-.mi b{{display:block;font-size:15.5px}}.mi span{{font-size:13px;color:#6b7280}}.mi em{{font-style:normal;font-weight:700;color:var(--d);white-space:nowrap;font-size:15px}}
-.stp{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}}
-.stp div{{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid #eee;border-radius:14px}}
-.stp i{{flex:none;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}}
-.stp b{{display:block;font-size:15px}}.stp span{{font-size:13.5px;color:#6b7280}}
-.gl{{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}}.gl div{{aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,var(--l),#fff);border:1px dashed var(--c);display:flex;align-items:center;justify-content:center;font-size:30px}}
-details{{border-top:1px solid #eee;padding:12px 0}}details:last-of-type{{border-bottom:1px solid #eee}}
-summary{{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;font-size:15.5px}}summary:after{{content:"+";color:var(--c);font-weight:700}}details[open] summary:after{{content:"–"}}details p{{margin:8px 0 0;color:#6b7280;font-size:14.5px}}
-@media(max-width:640px){{.gals{{display:none}}.mi{{padding:11px 13px}}.stp div{{padding:11px 12px}}}}
-</style></head><body>
+<style>:root{{--c:{c};--d:{d};--l:{l};--bg:{bg};--r:{r}px;--f:{font}}}{css}</style></head><body class="t-{k}">
 {exp}<div class="bar"><b>{emoji} {name}</b>{call_bar}</div>
-<div class="hero"><div class="em">{emoji}</div><span class="kick">{sublabel} · {city}</span>
+<header class="hero h-{hcls}"{hero_style}><div class="hero-in"><div class="ht"><span class="kick">{sublabel} · {city}</span>
 <h1>{name}</h1><p>{tag} {subline}</p>
-<div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a>{call_hero}</div></div>
-<div class="wrap">
-<section><h2>{svc_title}</h2><div class="mn">{menu}</div><p class="note">Sample services and prices. Your real ones go here once you approve.</p></section>
-<section><h2>How it works</h2><div class="stp">{steps}</div></section>
-<section class="gals"><h2>Gallery</h2><div class="gl">{gal}</div><p class="note">Your own photos go here.</p></section>
-<section><h2>Good to know</h2>{faq}</section>
-<section><h2>Visit us</h2><div class="info">{addr_row}{hours_row}{phone_row}</div>
+<div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a>{call_hero}</div>
+<ul class="chips">{chips}</ul></div>
+<div class="art" aria-hidden="true"{art_style}>{art_emoji}</div></div></header>
+<div class="wrap {secb}">
+<section class="rv"><h2>{svc_title}</h2><div class="mn">{menu}</div><p class="note">Sample services and prices. Your real ones go here once you approve.</p></section>
+<section class="rv"><h2>How it works</h2><div class="stp">{steps}</div></section>
+{gallery}
+<section class="rv"><h2>Good to know</h2>{faq}</section>
+<section class="rv"><h2>Visit us</h2><div class="info">{addr_row}{hours_row}{phone_row}</div>
 {map}<p style="margin:14px 0 0"><a class="pill p-ghost" href="{maps_url}" target="_blank" rel="noopener">📍 Open in Google Maps</a></p></section>
 </div>
-<div class="final"><h2>Ready when you are</h2><div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a></div></div>
+<div class="final rv"><h2>Ready when you are</h2><div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a></div></div>
 <footer>Demo preview made for {name}. Want this live on your own domain? Message the person who sent you this link.</footer>
-<a class="fab" href="{wa_url}" aria-label="WhatsApp">💬</a>
+<div class="sb"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a>{call_sb}</div>
+<script>document.documentElement.classList.add("js");(function(){{var e=document.querySelectorAll(".rv");if(!("IntersectionObserver" in window)){{e.forEach(function(x){{x.classList.add("in")}});return}}var o=new IntersectionObserver(function(a){{a.forEach(function(i){{if(i.isIntersecting){{i.target.classList.add("in");o.unobserve(i.target)}}}})}},{{threshold:.12}});e.forEach(function(x){{o.observe(x)}})}})();</script>
 </body></html>"""
 
 def exp_banner(l):
@@ -156,7 +207,16 @@ def build_page(l):
     menu = "".join(f'<div class="mi"><p style="margin:0"><b>{html.escape(a)}</b><span>{html.escape(d)}</span></p>' + (f'<em>from {html.escape(cur)}{p*sc}</em>' if p else '<em>On request</em>') + '</div>' for a, d, p in ct["menu"])
     steps = "".join(f'<div><i>{i}</i><p style="margin:0"><b>{html.escape(a)}</b><span>{html.escape(d)}</span></p></div>' for i, (a, d) in enumerate(ct["steps"], 1))
     faq = "".join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q, a in ct["faq"])
-    gal = "".join(f"<div>{e}</div>" for e in re.findall(r"[^\u200d\ufe0f][\ufe0f\u200d]?", GAL_EMOJI.get(k, "✨✨✨✨"))[:4])
+    th = THEME[k]
+    photos = [u for u in (CFG.get("photos", {}).get(k) or []) if isinstance(u, str) and u.startswith("https://")][:4]
+    ge = lambda u: html.escape(u, quote=True)
+    gallery = ("<section class=\"rv\"><h2>Gallery</h2><div class=\"gl\">" + "".join(f'<img src="{ge(u)}" alt="{name} - {html.escape(l.get("sub") or k)}" loading="lazy">' for u in photos[1:] or photos) + "</div></section>") if photos else ""
+    hero_style = art_style = ""
+    if photos:
+        if "dark" in th["cls"]: hero_style = f' style="background-image:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.62)),url({ge(photos[0])})"'
+        else: art_style = f' style="background-image:url({ge(photos[0])})"'
+    art_emoji = "" if (photos and "dark" not in th["cls"]) else f"<b>{n['emoji']}</b>"
+    chips = "".join(f"<li>{html.escape(t if ph else t.replace('WhatsApp', 'Messenger'))}</li>" for e, t, d in n["why"])
     why = "".join(f'<div><i>{e}</i><p style="margin:0"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></p></div>' for e, t, d in n["why"])
     addr = l.get("addr", "")
     addr_row = f'<div class="row"><small>Address</small>{html.escape(addr)}</div>' if addr else ""
@@ -179,7 +239,10 @@ def build_page(l):
                       call_bar=(f'<a class="pill p-call" href="tel:+{ph}">Call</a>' if ph else ""),
                       call_hero=(f'<a class="pill p-ghost" href="tel:+{ph}">📞 Call now</a>' if ph else ""),
                       phone_row=(f'<div class="row"><small>Phone</small><a href="tel:+{ph}">+{ph}</a></div>' if ph else ""), wa_url=html.escape(wa_url), svc_title=html.escape(n["svc_title"]),
-                      menu=menu, steps=steps, gal=gal, faq=faq, why=why, addr_row=addr_row, hours_row=hours_row, map=mp, maps_url=html.escape(maps_url),
+                      k=k, bg=th["bg"], r=th["r"], font=th["font"], css=CSS, hcls=th["cls"].replace(" ", " h-"), secb=("sec-bold" if "bold" in th["cls"] else ""),
+                      hero_style=hero_style, art_style=art_style, art_emoji=art_emoji, chips=chips, gallery=gallery,
+                      call_sb=(f'<a class="pill p-ghost" href="tel:+{ph}">📞 Call</a>' if ph else ""),
+                      menu=menu, steps=steps, faq=faq, addr_row=addr_row, hours_row=hours_row, map=mp, maps_url=html.escape(maps_url),
                       ld=json.dumps(ld, ensure_ascii=False).replace("</", "<\\/"))
 
 def slug(l):
