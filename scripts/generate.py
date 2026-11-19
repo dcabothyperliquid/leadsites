@@ -57,7 +57,7 @@ CONTENT = {
    steps=[("Browse the menu","See what's cooking today."),("Message us","Order or reserve a table in one message."),("Enjoy","Dine in or take away.")],
    faq=[("Can I reserve a table?","Yes, send us a message with the date, time and number of guests."),("Do you do takeaway?","Yes, message your order and we will tell you when it is ready."),("Do you cater for dietary needs?","Tell us your needs when you message and we will guide you.")]),
 }
-CUR_SCALE = {"₹": 80, "AED ": 4}
+CUR_SCALE = {"₹": 80, "AED ": 4, "A$": 2}
 GAL_EMOJI = {"salon": "💇✨💅🌿", "clinic": "🩺🏥💊🌿", "dental": "🦷😁✨🪥", "restaurant": "🍛🥗🍰🍽️", "garage": "🔧🚗🛠️🛞", "gym": "🏋️🏃🧘💪", "bakery": "🎂🥐🍪🥖"}
 
 DAYS = {"Mo": "Mon", "Tu": "Tue", "We": "Wed", "Th": "Thu", "Fr": "Fri", "Sa": "Sat", "Su": "Sun", "PH": "Holidays"}
@@ -330,7 +330,7 @@ def pitch(l, url, url5=""):
         cost = (f"Pasand aaye toh aapki real photos aur details ke saath final kar dunga: 1 page {cur}{price}" + (f", 5 page Pro {cur}{p5}" if p5 else "") + ".") if two else f"Pasand aaye toh {cur}{price} mein aapki real photos aur details ke saath final kar dunga."
         return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{links}\n"
                 f"{cost} Koi change chahiye toh bata dijiye.{contact}")
-    # English, localised per market (UK / UAE / Australia / US wording), varied hook per lead, USD prices
+    # English, localised per market (UK / UAE / Australia / US wording), varied hook per lead, local-currency prices (UK £ / UAE AED / AU A$ / US $)
     h = int(str(l.get("id", "0"))[:8], 16) % 3 if re.fullmatch(r"[0-9a-f]{8,}", str(l.get("id", ""))[:8] or "x") else 0
     nm = l["name"]
     LOC = {
@@ -353,9 +353,9 @@ def pitch(l, url, url5=""):
     demo = (f"We made a quick demo where {BENEFIT_EN[nk]}:" if h == 2 else f"We couldn't find one online, so we made a quick demo where {BENEFIT_EN[nk]}:")
     links = (f"1-page: {url}\n5-page: {url5}" if two else url)
     if two:
-        cost = f"If you like one, we can finish it with your real photos and details: ${price} for the 1-page or ${p5} for the 5-page (USD). {t['tail']}"
+        cost = f"If you like one, we can finish it with your real photos and details: {cur}{price} for the 1-page or {cur}{p5} for the 5-page. {t['tail']}"
     else:
-        cost = f"If you like it, we can finish it with your real photos and details for ${price} (USD). {t['tail']}"
+        cost = f"If you like it, we can finish it with your real photos and details for {cur}{price}. {t['tail']}"
     return f"{hook} {who} {demo}\n{links}\n{cost}\n{t['close']}"
 
 def reach(l, text):
