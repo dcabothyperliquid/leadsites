@@ -17,7 +17,7 @@ on:
         required: false
         default: ""
       manual_niche:
-        description: "salon | clinic | restaurant | garage | gym | bakery"
+        description: "salon | clinic | restaurant"
         required: false
         default: "salon"
       manual_city:

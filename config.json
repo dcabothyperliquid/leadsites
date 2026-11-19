@@ -323,11 +323,7 @@
   "clinic",
   "restaurant"
  ],
- "queue": [
-  "garage",
-  "gym",
-  "bakery"
- ],
+ "queue": [],
  "rollout_start": "2026-11-19",
  "rollout_days": 14,
  "active_markets": [
