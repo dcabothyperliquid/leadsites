@@ -1,5 +1,5 @@
-"""Lead finder. Runs on GitHub Actions only (nothing runs on Render). NEW leads are added ONLY on a manual scan (SCAN=true,
-button in the Xbot Leads tab), max `max_new_leads_per_run` (=30) per UTC day. Scheduled / push runs only refresh existing leads.
+"""Lead finder. Runs on GitHub Actions only (nothing runs on Render). NEW leads are added by the DAILY scheduled run (SCAN=true) and by the manual scan button in the Xbot
+Leads tab -- together max `max_new_leads_per_run` (=30) per UTC day. Push-triggered runs only refresh existing leads.
 
 * Only the ACTIVE niches are searched (start: salon, clinic, restaurant; the queue adds one every rollout_days).
 * Few cities per run (rotating daily, tier-2 cities included) -> polite to Overpass, steady flow of fresh leads.
@@ -128,7 +128,7 @@ def main():
     by_niche = {k: [] for k in act}
     seq = int(prev.get("scan_seq", int(time.time() // 86400)))
     if not SCAN:
-        print("NO SCAN (manual scan only) -- existing leads refreshed, no new leads added")
+        print("NO SCAN (push run) -- existing leads refreshed, no new leads added")
     elif cap <= 0:
         print("DAILY SCAN LIMIT reached -- no new leads today")
     elif not allc:

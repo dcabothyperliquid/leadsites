@@ -42,7 +42,7 @@ on:
         type: boolean
         default: false
       scan:
-        description: "SCAN: find NEW leads now (max 30 per day). Without this, no new leads are added."
+        description: "SCAN: find NEW leads now (extra, max 30 per day in total with the daily auto scan)"
         required: false
         type: boolean
         default: false
@@ -70,7 +70,7 @@ jobs:
       - name: Find leads
         env:
           ONLY_CITY: ${{ github.event.inputs.only_city }}
-          SCAN: ${{ github.event.inputs.scan }}
+          SCAN: ${{ github.event_name == 'schedule' && 'true' || github.event.inputs.scan }}
           SITE_DIR: site
         run: python scripts/finder.py
       - name: Manual demo (only if a name was given)
