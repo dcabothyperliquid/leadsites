@@ -6,7 +6,7 @@ CFG = json.load(open("config.json"))
 OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
 USER, REPO = OWNER_REPO.split("/")
 BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "4"   # bump to rebuild every page + pitch
+VER = "5"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -155,6 +155,7 @@ BENEFIT_EN = {"salon": "clients can book straight on WhatsApp", "clinic": "patie
 def pitch(l, url):
     m = CFG["markets"][l["market"]]
     seller, price, cur = CFG["seller_name"], m["price"], m["currency"]
+    brand = CFG.get("brand") or seller
     bits = []
     if CFG.get("seller_wa"): bits.append(f'WhatsApp: https://wa.me/{CFG["seller_wa"]}')
     if CFG.get("seller_fb"): bits.append(f'Facebook: https://m.me/{CFG["seller_fb"]}')
@@ -162,9 +163,9 @@ def pitch(l, url):
     contact = ("\n" + " | ".join(bits)) if bits else ""
     nk = l.get("niche") if l.get("niche") in BENEFIT_HI else "restaurant"
     if m["lang"] == "hinglish":
-        return (f"Namaste! Main {seller} hoon, web developer. {l['name']} ke liye maine ek demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{url}\n"
+        return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine ek demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{url}\n"
                 f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath). Koi change chahiye toh bata dijiye.{contact}")
-    return (f"Hi! I'm {seller}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
+    return (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
             f"If you like it, I can put it live under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}\n"
             f"If you'd rather not hear from me, just say and I won't message again.")
 
