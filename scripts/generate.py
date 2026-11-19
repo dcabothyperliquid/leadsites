@@ -330,13 +330,19 @@ def pitch(l, url, url5=""):
         cost = (f"Pasand aaye toh aapke naam se live kar dunga (domain/hosting setup ke saath): 1 page {cur}{price}" + (f", 5 page Pro {cur}{p5}" if p5 else "") + ".") if two else f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath)."
         return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{links}\n"
                 f"{cost} Koi change chahiye toh bata dijiye.{contact}")
-    links = (f"1-page: {url}\n5-page Pro: {url5}" if two else url)
-    cost = (f"If you like one, I can put it live under your own name (domain & hosting setup included): 1-page for {cur}{price}" + (f", 5-page Pro for {cur}{p5}" if p5 else "") + ".") if two else f"If you like it, I can put it live as a one-page site under your own name for {cur}{price} (domain & hosting setup included)."
-    return (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built two quick demos where {BENEFIT_EN[nk]}:\n{links}\n"
-            f"{cost} Happy to tweak anything.{contact}\n"
-            f"If you'd rather not hear from me, just say and I won't message again.") if two else (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
-            f"{cost} Happy to tweak anything.{contact}\n"
-            f"If you'd rather not hear from me, just say and I won't message again.")
+    # English: human-style DM (varied hook per lead, price in USD, no seller WA link -- they are already chatting on WhatsApp)
+    NOUN = {"salon": "salons", "clinic": "clinics", "restaurant": "restaurants", "garage": "garages", "gym": "gyms", "bakery": "bakeries"}
+    h = int(str(l.get("id", "0"))[:8], 16) % 3 if re.fullmatch(r"[0-9a-f]{8,}", str(l.get("id", ""))[:8] or "x") else 0
+    hook = [f"Hi, is this {l['name']}?",
+            f"Hey, quick question, does {l['name']} have its own website?",
+            f"Hi, I came across {l['name']} while looking at local {NOUN[nk]} in {l['city']}."][h]
+    intro = f"We're {brand}, we build websites for local businesses. We couldn't find one for you, so we made a quick demo where {BENEFIT_EN[nk]}:"
+    links = (f"1-page: {url}\n5-page: {url5}" if two else url)
+    if two:
+        cost = f"If you like one, we can put it live under your own name (domain & hosting setup included): ${price} for the 1-page or ${p5} for the 5-page (USD). Happy to change anything first, and no worries at all if it's not the right time."
+    else:
+        cost = f"If you like it, we can put it live under your own name (domain & hosting setup included) for ${price} (USD). Happy to change anything first, and no worries at all if it's not the right time."
+    return f"{hook} {intro}\n{links}\n{cost}\nA proper website builds trust and brings you new customers who search before they visit."
 
 def reach(l, text):
     """Primary outreach link + channel list. WhatsApp when a mobile exists, Facebook Messenger otherwise."""

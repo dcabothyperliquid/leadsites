@@ -100,7 +100,7 @@
   "US": {
    "cc": "1",
    "currency": "$",
-   "price": "149",
+   "price": "99",
    "lang": "en",
    "cities": [
     [
@@ -129,11 +129,11 @@
      -80.1918
     ]
    ],
-   "price5": "249"
+   "price5": "255"
   },
   "AU": {
    "cc": "61",
-   "currency": "A$",
+   "currency": "$",
    "price": "99",
    "lang": "en",
    "cities": [
@@ -158,11 +158,11 @@
      115.8605
     ]
    ],
-   "price5": "249"
+   "price5": "255"
   },
   "UK": {
    "cc": "44",
-   "currency": "£",
+   "currency": "$",
    "price": "99",
    "lang": "en",
    "cities": [
@@ -227,12 +227,12 @@
      -1.1398
     ]
    ],
-   "price5": "249"
+   "price5": "255"
   },
   "AE": {
    "cc": "971",
-   "currency": "AED ",
-   "price": "399",
+   "currency": "$",
+   "price": "99",
    "lang": "en",
    "cities": [
     [
@@ -256,7 +256,7 @@
      55.5136
     ]
    ],
-   "price5": "999"
+   "price5": "255"
   }
  },
  "cities_per_run": 4,
