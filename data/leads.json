@@ -1,5 +1,616 @@
 [
 {
+"id": "843bcf8784",
+"name": "Sagheer Barbers Shop",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447960129370",
+"fb": null,
+"addr": "209 Bordesley Green East, Birmingham",
+"hours": "Mo-Sa 10:00-19:00; Su 11:00-18:00",
+"lat": 52.4793162,
+"lon": -1.8226946,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-sagheer-barbers-shop-843bc/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Sagheer Barbers Shop doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-sagheer-barbers-shop-843bc/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447960129370?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Sagheer%20Barbers%20Shop%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-sagheer-barbers-shop-843bc/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "379f4714a4",
+"name": "Brown Bear",
+"niche": "restaurant",
+"sub": "Cafe",
+"cat": "Cafe",
+"city": "Melbourne",
+"market": "AU",
+"phone": null,
+"fb": "100063714663021",
+"addr": "301 High Street, Melbourne",
+"hours": "",
+"lat": -37.7430405,
+"lon": 145.0030309,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-brown-bear-379f4/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Brown Bear doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-brown-bear-379f4/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"fb"
+],
+"fb_link": "https://m.me/100063714663021",
+"wa": "https://m.me/100063714663021"
+},
+{
+"id": "14d47bd57e",
+"name": "Empress Beauty Lounge",
+"niche": "salon",
+"sub": "Beauty Studio",
+"cat": "Beauty Studio",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447838410064",
+"fb": null,
+"addr": "99 Hawthorn Road, Birmingham",
+"hours": "",
+"lat": 52.5382776,
+"lon": -1.8797576,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-empress-beauty-lounge-14d47/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Empress Beauty Lounge doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-empress-beauty-lounge-14d47/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447838410064?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Empress%20Beauty%20Lounge%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-empress-beauty-lounge-14d47/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "2e7511ce60",
+"name": "Ablas Patisserie",
+"niche": "restaurant",
+"sub": "Cafe",
+"cat": "Cafe",
+"city": "Melbourne",
+"market": "AU",
+"phone": null,
+"fb": "Ablas-Patisserie-PL-100063567341582",
+"addr": "260 High Street, Melbourne",
+"hours": "",
+"lat": -37.7429579,
+"lon": 145.0033794,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-ablas-patisserie-2e751/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Ablas Patisserie doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-ablas-patisserie-2e751/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"fb"
+],
+"fb_link": "https://m.me/Ablas-Patisserie-PL-100063567341582",
+"wa": "https://m.me/Ablas-Patisserie-PL-100063567341582"
+},
+{
+"id": "d3a829a6f6",
+"name": "Face and Body Treatments",
+"niche": "salon",
+"sub": "Beauty Studio",
+"cat": "Beauty Studio",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447424707913",
+"fb": null,
+"addr": "85 Hawthorn Road, Birmingham",
+"hours": "",
+"lat": 52.5380578,
+"lon": -1.8793485,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-face-and-body-treatments-d3a82/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Face and Body Treatments doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-face-and-body-treatments-d3a82/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447424707913?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Face%20and%20Body%20Treatments%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-face-and-body-treatments-d3a82/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "0f4e6c4972",
+"name": "Masitta",
+"niche": "restaurant",
+"sub": "Restaurant",
+"cat": "Restaurant",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61478248126",
+"fb": null,
+"addr": "51 Plenty Road, Melbourne",
+"hours": "",
+"lat": -37.7498698,
+"lon": 145.0030954,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-masitta-0f4e6/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Masitta doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-masitta-0f4e6/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/61478248126?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Masitta%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-masitta-0f4e6/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "b96b38df33",
+"name": "Kingstanding Barber Shop",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447934315006",
+"fb": null,
+"addr": "142 Hawthorn Road, Birmingham",
+"hours": "Mo-Tu 09:00-18:00; Th-Sa 09:15-18:00; Su 09:00-16:00",
+"lat": 52.5390901,
+"lon": -1.8818444,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-kingstanding-barber-shop-b96b3/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Kingstanding Barber Shop doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-kingstanding-barber-shop-b96b3/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447934315006?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Kingstanding%20Barber%20Shop%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-kingstanding-barber-shop-b96b3/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "ba80ed3794",
+"name": "Yiannis Pantheon Cakes",
+"niche": "restaurant",
+"sub": "Cafe",
+"cat": "Cafe",
+"city": "Melbourne",
+"market": "AU",
+"phone": null,
+"fb": "YiannisPantheonCakes",
+"addr": "425 Sydney Road, Melbourne",
+"hours": "",
+"lat": -37.7434669,
+"lon": 144.9660834,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-yiannis-pantheon-cakes-ba80e/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Yiannis Pantheon Cakes doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-yiannis-pantheon-cakes-ba80e/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"fb"
+],
+"fb_link": "https://m.me/YiannisPantheonCakes",
+"wa": "https://m.me/YiannisPantheonCakes"
+},
+{
+"id": "27f9c42a74",
+"name": "The Clip Bar",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447442266004",
+"fb": null,
+"addr": "1199 Warwick Road, Birmingham",
+"hours": "",
+"lat": 52.4455501,
+"lon": -1.8178515,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-the-clip-bar-27f9c/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Clip Bar doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-the-clip-bar-27f9c/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447442266004?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20The%20Clip%20Bar%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-the-clip-bar-27f9c/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "f48f21b2c9",
+"name": "Burhan's Espresso Bar",
+"niche": "restaurant",
+"sub": "Cafe",
+"cat": "Cafe",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61417587539",
+"fb": null,
+"addr": "Melbourne",
+"hours": "",
+"lat": -37.8319833,
+"lon": 144.9559589,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-burhan-s-espresso-bar-f48f2/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Burhan's Espresso Bar doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-burhan-s-espresso-bar-f48f2/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/61417587539?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Burhan%27s%20Espresso%20Bar%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-burhan-s-espresso-bar-f48f2/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "ca3b416713",
+"name": "New Lookz Barbers",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447711178135",
+"fb": null,
+"addr": "335 Soho Road, Birmingham",
+"hours": "Mo-Su 09:00-20:00",
+"lat": 52.5039763,
+"lon": -1.9386957,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-new-lookz-barbers-ca3b4/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed New Lookz Barbers doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-new-lookz-barbers-ca3b4/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447711178135?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20New%20Lookz%20Barbers%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-new-lookz-barbers-ca3b4/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "e4c8a1d1bc",
+"name": "Ba Ba Rolls",
+"niche": "restaurant",
+"sub": "Fast Food",
+"cat": "Fast Food",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61420769789",
+"fb": null,
+"addr": "Melbourne",
+"hours": "",
+"lat": -37.8328995,
+"lon": 144.9559388,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-ba-ba-rolls-e4c8a/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Ba Ba Rolls doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-ba-ba-rolls-e4c8a/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/61420769789?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Ba%20Ba%20Rolls%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-ba-ba-rolls-e4c8a/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "ab10518e65",
+"name": "New Image Barbers",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447779321743",
+"fb": null,
+"addr": "77 Gorsy Road, Birmingham",
+"hours": "Mo-Sa 10:00-19:00; Su 12:00-19:00",
+"lat": 52.4532814,
+"lon": -1.9896385,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-new-image-barbers-ab105/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed New Image Barbers doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-new-image-barbers-ab105/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447779321743?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20New%20Image%20Barbers%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-new-image-barbers-ab105/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "8a9467fca0",
+"name": "Lat’s Sushi",
+"niche": "restaurant",
+"sub": "Restaurant",
+"cat": "Restaurant",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61433948386",
+"fb": null,
+"addr": "Melbourne",
+"hours": "",
+"lat": -37.8328614,
+"lon": 144.9560836,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-lat-s-sushi-8a946/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Lat’s Sushi doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-lat-s-sushi-8a946/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/61433948386?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Lat%E2%80%99s%20Sushi%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-lat-s-sushi-8a946/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "1947887201",
+"name": "The Nail Village",
+"niche": "salon",
+"sub": "Beauty Studio",
+"cat": "Beauty Studio",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447887886318",
+"fb": "thenailvillage",
+"addr": "1468 Pershore Road, Birmingham",
+"hours": "Mo-Sa 09:30-18:00",
+"lat": 52.4257613,
+"lon": -1.9218203,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-the-nail-village-19478/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Nail Village doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-the-nail-village-19478/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa",
+"fb"
+],
+"fb_link": "https://m.me/thenailvillage",
+"wa": "https://wa.me/447887886318?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20The%20Nail%20Village%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-the-nail-village-19478/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "7e87f7b4de",
+"name": "Pieno Di Grazia",
+"niche": "restaurant",
+"sub": "Fast Food",
+"cat": "Fast Food",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61419003398",
+"fb": null,
+"addr": "Melbourne",
+"hours": "",
+"lat": -37.8327554,
+"lon": 144.955873,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-pieno-di-grazia-7e87f/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Pieno Di Grazia doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-pieno-di-grazia-7e87f/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/61419003398?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Pieno%20Di%20Grazia%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-pieno-di-grazia-7e87f/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "faeb33410c",
+"name": "Five Star Barber Shop",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447947595940",
+"fb": null,
+"addr": "1416 Pershore Road, Birmingham",
+"hours": "Mo-Sa 09:00-19:00; Su 09:00-17:00",
+"lat": 52.426976,
+"lon": -1.9220415,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-five-star-barber-shop-faeb3/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Five Star Barber Shop doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-five-star-barber-shop-faeb3/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447947595940?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Five%20Star%20Barber%20Shop%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-five-star-barber-shop-faeb3/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "1630af12c0",
+"name": "Dragon Room Chinese",
+"niche": "restaurant",
+"sub": "Fast Food",
+"cat": "Fast Food",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61411724309",
+"fb": null,
+"addr": "Melbourne",
+"hours": "",
+"lat": -37.8331601,
+"lon": 144.9563608,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-dragon-room-chinese-1630a/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Dragon Room Chinese doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-dragon-room-chinese-1630a/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/61411724309?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Dragon%20Room%20Chinese%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-dragon-room-chinese-1630a/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "465504938a",
+"name": "Kashmir Gents Hair Dresser Salon",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447779599640",
+"fb": null,
+"addr": "10 Station Road, Birmingham",
+"hours": "",
+"lat": 52.5068528,
+"lon": -1.9504366,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-kashmir-gents-hair-dresser-sal-46550/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Kashmir Gents Hair Dresser Salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-kashmir-gents-hair-dresser-sal-46550/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447779599640?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Kashmir%20Gents%20Hair%20Dresser%20Salon%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-kashmir-gents-hair-dresser-sal-46550/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "9903be73f9",
+"name": "Canteen",
+"niche": "restaurant",
+"sub": "Cafe",
+"cat": "Cafe",
+"city": "Melbourne",
+"market": "AU",
+"phone": null,
+"fb": "CanteenCafeSthMelb",
+"addr": "Melbourne",
+"hours": "",
+"lat": -37.8327035,
+"lon": 144.9560688,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-canteen-9903b/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Canteen doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-canteen-9903b/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"fb"
+],
+"fb_link": "https://m.me/CanteenCafeSthMelb",
+"wa": "https://m.me/CanteenCafeSthMelb"
+},
+{
+"id": "dc2e18812b",
+"name": "Hair by Sonia",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447825410811",
+"fb": null,
+"addr": "46 Three Shires Oak Road, Birmingham",
+"hours": "",
+"lat": 52.4773564,
+"lon": -1.9745164,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-hair-by-sonia-dc2e1/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Hair by Sonia doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-hair-by-sonia-dc2e1/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447825410811?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Hair%20by%20Sonia%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-hair-by-sonia-dc2e1/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "f82ad9f765",
+"name": "Ramen Misoya Sake Bar",
+"niche": "restaurant",
+"sub": "Restaurant",
+"cat": "Restaurant",
+"city": "Melbourne",
+"market": "AU",
+"phone": null,
+"fb": "MisoyaSakeBar",
+"addr": "165A Sydney Road, Melbourne",
+"hours": "Fr-Su 12:00-14:30, Mo-Su 17:30-21:30",
+"lat": -37.7732891,
+"lon": 144.9609263,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-ramen-misoya-sake-bar-f82ad/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Ramen Misoya Sake Bar doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-ramen-misoya-sake-bar-f82ad/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"fb"
+],
+"fb_link": "https://m.me/MisoyaSakeBar",
+"wa": "https://m.me/MisoyaSakeBar"
+},
+{
+"id": "2549b6c5b0",
+"name": "Charlotte James Hair Salon",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447763993038",
+"fb": "Charlotte-James-hair",
+"addr": "81 St Marys Road, Birmingham",
+"hours": "",
+"lat": 52.4753391,
+"lon": -1.9714572,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-charlotte-james-hair-salon-2549b/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Charlotte James Hair Salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-charlotte-james-hair-salon-2549b/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa",
+"fb"
+],
+"fb_link": "https://m.me/Charlotte-James-hair",
+"wa": "https://wa.me/447763993038?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Charlotte%20James%20Hair%20Salon%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-charlotte-james-hair-salon-2549b/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "fcf3f41e3a",
+"name": "Clay Oven Pizza",
+"niche": "restaurant",
+"sub": "Restaurant",
+"cat": "Restaurant",
+"city": "Melbourne",
+"market": "AU",
+"phone": "61435570130",
+"fb": "clayovenpizza",
+"addr": "501 Macaulay Road, Melbourne",
+"hours": "We-Mo 17:30-22:00",
+"lat": -37.7944706,
+"lon": 144.9293963,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-clay-oven-pizza-fcf3f/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Clay Oven Pizza doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-clay-oven-pizza-fcf3f/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa",
+"fb"
+],
+"fb_link": "https://m.me/clayovenpizza",
+"wa": "https://wa.me/61435570130?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Clay%20Oven%20Pizza%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/melbourne-clay-oven-pizza-fcf3f/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20A%2499%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
+"id": "b683e7b8b2",
+"name": "Top Barber",
+"niche": "salon",
+"sub": "Salon",
+"cat": "Salon",
+"city": "Birmingham",
+"market": "UK",
+"phone": "447780909988",
+"fb": null,
+"addr": "493 Bearwood Road, Birmingham",
+"hours": "",
+"lat": 52.4766933,
+"lon": -1.9696269,
+"live": true,
+"found": "2026-11-19",
+"url": "https://dcabothyperliquid.github.io/leadsites/s/birmingham-top-barber-b683e/",
+"ver": "7",
+"pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Top Barber doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/birmingham-top-barber-b683e/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
+"channels": [
+"wa"
+],
+"wa": "https://wa.me/447780909988?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Top%20Barber%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/birmingham-top-barber-b683e/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again."
+},
+{
 "id": "6321436e7e",
 "name": "Juddy Roller",
 "niche": "restaurant",
@@ -16,7 +627,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-juddy-roller-63214/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Juddy Roller doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-juddy-roller-63214/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -41,7 +652,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-black-and-white-c8b5d/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Black and White doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-black-and-white-c8b5d/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -65,7 +676,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-chorba-ea469/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Chorba doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-chorba-ea469/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -89,7 +700,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-the-nicholson-coffee-eatery-848a5/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Nicholson Coffee & Eatery doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-the-nicholson-coffee-eatery-848a5/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -114,7 +725,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-desi-dhaba-9b6ee/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Desi Dhaba doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-desi-dhaba-9b6ee/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -139,7 +750,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-knafeh-nabulseyeh-2e122/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Knafeh Nabulseyeh doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-knafeh-nabulseyeh-2e122/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -164,7 +775,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-night-spark-restaurant-5cd6f/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Night Spark Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-night-spark-restaurant-5cd6f/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa",
@@ -190,7 +801,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-simply-gnocchi-180d9/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Simply Gnocchi doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-simply-gnocchi-180d9/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -215,7 +826,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-caffe-rustico-ace42/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Caffe Rustico doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-caffe-rustico-ace42/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -240,7 +851,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-wolf-and-hound-18814/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Wolf and Hound doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-wolf-and-hound-18814/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -265,7 +876,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-sister-of-soul-9bd5e/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Sister of soul doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-sister-of-soul-9bd5e/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -290,7 +901,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-ondol-korean-restaurant-fa2cb/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Ondol Korean Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-ondol-korean-restaurant-fa2cb/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -314,7 +925,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-java-cafe-21031/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Java Cafe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-java-cafe-21031/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -339,7 +950,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-the-glass-den-0eb05/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Glass Den doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-the-glass-den-0eb05/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -364,7 +975,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-malaysian-laksa-house-bae7b/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Malaysian Laksa House doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-malaysian-laksa-house-bae7b/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -389,7 +1000,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-cindy-s-kitchen-56389/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Cindy's Kitchen doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-cindy-s-kitchen-56389/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -413,7 +1024,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-little-bridge-cafe-37ce0/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Little Bridge Cafe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-little-bridge-cafe-37ce0/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -438,7 +1049,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-the-nicholson-coffee-house-fc8f5/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Nicholson Coffee House doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-the-nicholson-coffee-house-fc8f5/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -463,7 +1074,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-mister-baker-8e79a/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Mister Baker doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-mister-baker-8e79a/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -488,7 +1099,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-ishtar-borek-and-falafel-0b590/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Ishtar Borek and Falafel doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-ishtar-borek-and-falafel-0b590/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -512,7 +1123,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-croque-n-roll-eac22/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Croque'n'Roll doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-croque-n-roll-eac22/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -537,7 +1148,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-les-crepes-gourmandes-bc5ea/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Les Crepes Gourmandes doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-les-crepes-gourmandes-bc5ea/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -562,7 +1173,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-asv-bakehouse-ff3a7/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed ASV Bakehouse doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-asv-bakehouse-ff3a7/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -586,7 +1197,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-the-bean-project-10763/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Bean Project doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-the-bean-project-10763/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -611,7 +1222,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-toledo-brunswick-9e655/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Toledo Brunswick doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-toledo-brunswick-9e655/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -636,7 +1247,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-concrete-blonde-22e04/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Concrete Blonde doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-concrete-blonde-22e04/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -661,7 +1272,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-swan-ceca9/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed swan doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-swan-ceca9/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -685,7 +1296,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-revamp-u-hair-beauty-9409e/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Revamp U Hair + Beauty doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-revamp-u-hair-beauty-9409e/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa",
@@ -711,7 +1322,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-fresh-bun-mour-bakery-b-g-pare-e893e/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Fresh Bun & Mour Bakery (B&G Pares House) doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-fresh-bun-mour-bakery-b-g-pare-e893e/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -735,7 +1346,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-v-instyle-nails-spa-c5a26/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed V inStyle Nails Spa doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-v-instyle-nails-spa-c5a26/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -760,7 +1371,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-aroy-dee-thai-restaurant-33b82/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Aroy Dee Thai Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-aroy-dee-thai-restaurant-33b82/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -785,7 +1396,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-paradise-cutters-ade4c/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Paradise Cutters doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-paradise-cutters-ade4c/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -810,7 +1421,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-theory-cafe-f88c4/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Theory Cafe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-theory-cafe-f88c4/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -834,7 +1445,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-northern-barber-shop-shave-par-c4c96/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Northern Barber Shop & Shave Parlour doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-northern-barber-shop-shave-par-c4c96/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -859,7 +1470,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-chapter-cafe-0e1dd/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Chapter Cafe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-chapter-cafe-0e1dd/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -883,7 +1494,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-posthuman-hair-678a4/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Posthuman Hair doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-posthuman-hair-678a4/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -907,7 +1518,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-fresh-e1881/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Just Fresh doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-fresh-e1881/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -931,7 +1542,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-barbers-and-blowaves-a21e2/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Barbers and Blowaves doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-barbers-and-blowaves-a21e2/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -956,7 +1567,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-zali-a3b95/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Zali doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-zali-a3b95/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -980,7 +1591,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-ffa5a/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed مطعم أفريفود doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-ffa5a/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1004,7 +1615,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-gamasot-k-bbq-ab4db/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Gamasot K BBQ doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-gamasot-k-bbq-ab4db/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1028,7 +1639,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-garden-view-cafe-37c62/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Garden View Cafe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-garden-view-cafe-37c62/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1053,7 +1664,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-nana-thai-93ce5/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Nana Thai doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-nana-thai-93ce5/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1077,7 +1688,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-danny-s-burgers-70a8c/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Danny's Burgers doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-danny-s-burgers-70a8c/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1102,7 +1713,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-argi-cafe-e46ab/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed ARGI Cafe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-argi-cafe-e46ab/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1127,7 +1738,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-ini-coffee-1e507/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed INI Coffee doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-ini-coffee-1e507/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1151,7 +1762,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-espresso-bar-02187/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Espresso Bar doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-espresso-bar-02187/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1175,7 +1786,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-udon-izakaya-maedaya-3fea1/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Udon Izakaya Maedaya doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-udon-izakaya-maedaya-3fea1/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1200,7 +1811,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-raqwa-cafe-and-beer-garden-98d8f/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Raqwa Cafe and Beer Garden doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-raqwa-cafe-and-beer-garden-98d8f/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1225,7 +1836,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-in-a-rush-c25c9/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed In A Rush doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-in-a-rush-c25c9/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1249,7 +1860,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-blue-valley-saloon-40ed1/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Blue Valley Saloon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-blue-valley-saloon-40ed1/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1273,7 +1884,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-hankang-7c8c5/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed HanKang doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-hankang-7c8c5/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1297,7 +1908,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-aneza-beauty-indian-salon-8e46b/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Aneza Beauty Indian salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-aneza-beauty-indian-salon-8e46b/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa",
@@ -1323,7 +1934,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-fresh-8f91a/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Just Fresh doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-fresh-8f91a/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1347,7 +1958,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-lamor-5adbe/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Lamor doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-lamor-5adbe/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1371,7 +1982,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-burger-28cea/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Just Burger doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-burger-28cea/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa",
@@ -1397,7 +2008,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-4c935/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed صالون الباشا doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-4c935/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1421,7 +2032,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-kings-shawarma-restaurant-e6ca2/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Kings Shawarma Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-kings-shawarma-restaurant-e6ca2/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1445,7 +2056,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-d5805/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed صالون هير بوتاتو للرجال doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-d5805/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1470,7 +2081,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-binalot-restaurant-9ee48/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed BINALOT Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-binalot-restaurant-9ee48/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1494,7 +2105,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-divine-hair-co-70c60/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Divine Hair & Co doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-divine-hair-co-70c60/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1519,7 +2130,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-fresh-3b2ec/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Just Fresh doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-just-fresh-3b2ec/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1543,7 +2154,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-one-hope-street-f98e3/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed One Hope Street doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-one-hope-street-f98e3/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1568,7 +2179,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-jabal-al-rahman-restaurant-23b06/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Jabal Al Rahman Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-jabal-al-rahman-restaurant-23b06/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1592,7 +2203,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-sun-nails-beauty-a3b14/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Sun Nails & Beauty doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-sun-nails-beauty-a3b14/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1617,7 +2228,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-de814/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed مطعم سفن هوت بوت doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-de814/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1642,7 +2253,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-kings-salon-fd7cd/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Kings Salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-kings-salon-fd7cd/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1666,7 +2277,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-f9b27/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed مطعم ومشاوي شيكيس doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-f9b27/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1690,7 +2301,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-prestige-nails-and-beauty-salo-bf1f6/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Prestige Nails and Beauty Salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-prestige-nails-and-beauty-salo-bf1f6/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1714,7 +2325,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-27ccb/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed مطعم قرية العافية التركي doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-biz-27ccb/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1739,7 +2350,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-hair-by-epique-a882c/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Hair By Epique doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-hair-by-epique-a882c/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1764,7 +2375,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-punjabi-dhaba-restaurant-cf9e5/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Punjabi Dhaba Restaurant doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-punjabi-dhaba-restaurant-cf9e5/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa",
@@ -1790,7 +2401,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-the-hair-establishment-0b322/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Hair Establishment doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-the-hair-establishment-0b322/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "fb"
@@ -1815,7 +2426,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/abu dhabi-forever-rose-5961a/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Forever Rose doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/abu dhabi-forever-rose-5961a/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1839,7 +2450,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/melbourne-tulip-massage-93ef7/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Tulip Massage doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/melbourne-tulip-massage-93ef7/\nIf you like it, I can put it live as a one-page site under your own name for A$99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "channels": [
 "wa"
@@ -1862,7 +2473,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-keswick-barbers-f6c47/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Keswick Barbers doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-keswick-barbers-f6c47/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447588393979?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Keswick%20Barbers%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-keswick-barbers-f6c47/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -1885,7 +2496,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/dubai-biz-ebfd2/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed شمس موبين لطب الاسنان doesn't have a website, so I built a quick demo where patients can see your timings and book an appointment:\nhttps://dcabothyperliquid.github.io/leadsites/s/dubai-biz-ebfd2/\nIf you like it, I can put it live as a one-page site under your own name for AED 399 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/971507426794?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20%D8%B4%D9%85%D8%B3%20%D9%85%D9%88%D8%A8%D9%8A%D9%86%20%D9%84%D8%B7%D8%A8%20%D8%A7%D9%84%D8%A7%D8%B3%D9%86%D8%A7%D9%86%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20patients%20can%20see%20your%20timings%20and%20book%20an%20appointment%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/dubai-biz-ebfd2/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20AED%20399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -1908,7 +2519,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-cafe-la-tulipe-754e7/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Cafe La Tulipe doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-cafe-la-tulipe-754e7/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447438517420?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Cafe%20La%20Tulipe%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-cafe-la-tulipe-754e7/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -1931,7 +2542,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-barber-s-inspiration-d752f/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Barber’s Inspiration doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-barber-s-inspiration-d752f/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447527437387?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Barber%E2%80%99s%20Inspiration%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-barber-s-inspiration-d752f/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -1954,7 +2565,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-po-cha-6b990/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Po Cha 포장마차 doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-po-cha-6b990/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447379349552?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Po%20Cha%20%ED%8F%AC%EC%9E%A5%EB%A7%88%EC%B0%A8%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-po-cha-6b990/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -1977,7 +2588,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-crown-and-glory-barbers-67b7d/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Crown and Glory Barbers doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-crown-and-glory-barbers-67b7d/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447944135656?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Crown%20and%20Glory%20Barbers%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-crown-and-glory-barbers-67b7d/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2000,7 +2611,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-flame-flame-e2861/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Flame Flame doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-flame-flame-e2861/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447741427888?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Flame%20Flame%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-flame-flame-e2861/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2023,7 +2634,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-merric-barbers-93e57/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Merric Barbers doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-merric-barbers-93e57/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447943144736?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Merric%20Barbers%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-merric-barbers-93e57/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2046,7 +2657,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-tatar-bunar-70f2c/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Tatar Bunar doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-tatar-bunar-70f2c/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447771013190?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Tatar%20Bunar%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-tatar-bunar-70f2c/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2069,7 +2680,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-askew-cuts-9af6f/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Askew Cuts doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-askew-cuts-9af6f/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447588646638?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Askew%20Cuts%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-askew-cuts-9af6f/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2092,7 +2703,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-el-a-s-brunch-9cd7a/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed El&a’s Brunch doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-el-a-s-brunch-9cd7a/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447309882220?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20El%26a%E2%80%99s%20Brunch%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-el-a-s-brunch-9cd7a/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2115,7 +2726,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-tufnell-barbers-cb9ac/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Tufnell Barbers doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-tufnell-barbers-cb9ac/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447840976774?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Tufnell%20Barbers%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-tufnell-barbers-cb9ac/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2138,7 +2749,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-kitcho-d7e29/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Kitcho doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-kitcho-d7e29/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447720811820?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Kitcho%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-kitcho-d7e29/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2161,7 +2772,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-mabrouka-c1211/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Mabrouka doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-mabrouka-c1211/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447769210206?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Mabrouka%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-mabrouka-c1211/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2184,7 +2795,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-the-cut-3416d/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed The Cut doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-the-cut-3416d/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447752747515?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20The%20Cut%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-the-cut-3416d/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2207,7 +2818,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-rai-morai-2f0a4/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Rai Morai doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-rai-morai-2f0a4/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447970384720?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Rai%20Morai%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-rai-morai-2f0a4/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2230,7 +2841,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-cibae-a-2-espa-a-0514f/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Cibaeña 2 España doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-cibae-a-2-espa-a-0514f/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447864265925?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Cibae%C3%B1a%202%20Espa%C3%B1a%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-cibae-a-2-espa-a-0514f/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2253,7 +2864,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-kaz-signature-ltd-f8d12/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Kaz Signature Ltd doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-kaz-signature-ltd-f8d12/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447311587478?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Kaz%20Signature%20Ltd%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-kaz-signature-ltd-f8d12/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2276,7 +2887,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-cha-kee-5f189/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Cha Kee doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-cha-kee-5f189/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447899547405?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Cha%20Kee%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-cha-kee-5f189/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2299,7 +2910,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-cat-toc-nam-nu-cc35c/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Cat Toc Nam Nu doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-cat-toc-nam-nu-cc35c/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447424188147?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Cat%20Toc%20Nam%20Nu%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-cat-toc-nam-nu-cc35c/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2322,7 +2933,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-soul-food-jerk-chicken-8afb5/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Soul Food & Jerk Chicken doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-soul-food-jerk-chicken-8afb5/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447980940001?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Soul%20Food%20%26%20Jerk%20Chicken%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-soul-food-jerk-chicken-8afb5/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2345,7 +2956,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-gulf-salon-8c7b8/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Gulf Salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-gulf-salon-8c7b8/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447773947777?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Gulf%20Salon%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-gulf-salon-8c7b8/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2368,7 +2979,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-mouse-tail-coffee-stories-c3f8a/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Mouse Tail Coffee Stories doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-mouse-tail-coffee-stories-c3f8a/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447552961118?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Mouse%20Tail%20Coffee%20Stories%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-mouse-tail-coffee-stories-c3f8a/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2391,7 +3002,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-helen-s-unisex-hair-beauty-sal-30167/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Helen's Unisex Hair & Beauty Salon doesn't have a website, so I built a quick demo where clients can book straight on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-helen-s-unisex-hair-beauty-sal-30167/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447397997995?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Helen%27s%20Unisex%20Hair%20%26%20Beauty%20Salon%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20clients%20can%20book%20straight%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-helen-s-unisex-hair-beauty-sal-30167/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
@@ -2414,7 +3025,7 @@
 "live": true,
 "found": "2026-11-19",
 "url": "https://dcabothyperliquid.github.io/leadsites/s/london-love-ramen-sushi-14541/",
-"ver": "6",
+"ver": "7",
 "pitch": "Hi! I'm Naem from Naem Studio, a web developer. I noticed Love Ramen & Sushi doesn't have a website, so I built a quick demo where guests can see your timings and order or book a table on WhatsApp:\nhttps://dcabothyperliquid.github.io/leadsites/s/london-love-ramen-sushi-14541/\nIf you like it, I can put it live as a one-page site under your own name for £99 (domain & hosting setup included). Happy to tweak anything.\nIf you'd rather not hear from me, just say and I won't message again.",
 "wa": "https://wa.me/447588415005?text=Hi%21%20I%27m%20Naem%20from%20Naem%20Studio%2C%20a%20web%20developer.%20I%20noticed%20Love%20Ramen%20%26%20Sushi%20doesn%27t%20have%20a%20website%2C%20so%20I%20built%20a%20quick%20demo%20where%20guests%20can%20see%20your%20timings%20and%20order%20or%20book%20a%20table%20on%20WhatsApp%3A%0Ahttps%3A//dcabothyperliquid.github.io/leadsites/s/london-love-ramen-sushi-14541/%0AIf%20you%20like%20it%2C%20I%20can%20put%20it%20live%20as%20a%20one-page%20site%20under%20your%20own%20name%20for%20%C2%A399%20%28domain%20%26%20hosting%20setup%20included%29.%20Happy%20to%20tweak%20anything.%0AIf%20you%27d%20rather%20not%20hear%20from%20me%2C%20just%20say%20and%20I%20won%27t%20message%20again.",
 "channels": [
