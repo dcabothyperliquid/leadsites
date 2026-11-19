@@ -1,4 +1,5 @@
-"""Auto lead finder. Runs daily on GitHub Actions only (nothing runs on Render).
+"""Lead finder. Runs on GitHub Actions only (nothing runs on Render). NEW leads are added ONLY on a manual scan (SCAN=true,
+button in the Xbot Leads tab), max `max_new_leads_per_run` (=30) per UTC day. Scheduled / push runs only refresh existing leads.
 
 * Only the ACTIVE niches are searched (start: salon, clinic, restaurant; the queue adds one every rollout_days).
 * Few cities per run (rotating daily, tier-2 cities included) -> polite to Overpass, steady flow of fresh leads.
@@ -110,7 +111,12 @@ def main():
     for l in leads: l["live"] = l.get("niche") in act and l.get("market") in mkts and not l.get("expired")
     print("ACTIVE NICHES:", act)
     seen = {l["id"] for l in leads}
-    cap = CFG["max_new_leads_per_run"]
+    SCAN = os.environ.get("SCAN", "").strip().lower() in ("1", "true", "yes")
+    prev = json.load(open(META_PATH)) if os.path.exists(META_PATH) else {}
+    day_s = time.strftime("%Y-%m-%d", time.gmtime())
+    done_today = int(prev.get("scan_count", 0)) if prev.get("scan_day") == day_s else 0
+    cap = max(0, CFG["max_new_leads_per_run"] - done_today) if SCAN else 0     # daily limit: 30 new leads per day via scan
+    print(f"SCAN={SCAN} done_today={done_today} cap={cap}")
     print("ACTIVE MARKETS:", mkts)
     per_mk = [[(mk, c) for c in CFG["markets"][mk]["cities"]] for mk in mkts]
     allc = [x for grp in zip(*per_mk) for x in grp] + [x for grp in per_mk for x in grp[min(map(len, per_mk)):]] if per_mk else []   # UK, AE, UK, AE ... (interleaved)
@@ -120,15 +126,21 @@ def main():
     elif enabled: allc = [x for x in allc if x[1][0].lower() in enabled]
     cities_today = []
     by_niche = {k: [] for k in act}
-    if not allc:
+    seq = int(prev.get("scan_seq", int(time.time() // 86400)))
+    if not SCAN:
+        print("NO SCAN (manual scan only) -- existing leads refreshed, no new leads added")
+    elif cap <= 0:
+        print("DAILY SCAN LIMIT reached -- no new leads today")
+    elif not allc:
         print("NO CITY MATCHED (check ONLY_CITY / enabled_cities)")
     else:
         per = max(1, CFG.get("cities_per_run", 4))
-        day = int(time.time() // 86400)
-        order = [allc[(day * per + i) % len(allc)] for i in range(min(per, len(allc)))]
+        order = [allc[(seq * per + i) % len(allc)] for i in range(min(per, len(allc)))]
         if only: order = allc[:1]
         for mk, c in order:
-            if sum(len(v) for v in by_niche.values()) >= cap * 2: break
+            mk_in_run = {x[0] for x in order}
+            cnt = {m: sum(1 for v in by_niche.values() for l in v if l["market"] == m) for m in mk_in_run}
+            if cnt and all(c >= -(-cap // len(mk_in_run)) * 2 for c in cnt.values()): break      # every country has enough candidates
             market = CFG["markets"][mk]
             name, lat, lon = c
             cities_today.append(name)
@@ -156,17 +168,29 @@ def main():
                                      "live": True, "found": time.strftime("%Y-%m-%d")})
             time.sleep(5)
     # round-robin over niches so the daily batch stays balanced
+    # balanced pick: round-robin over countries (and niches inside each country), so 30 = ~10 per country; short country -> others fill
+    per_m = {}
+    for k in act:
+        for l in by_niche[k]: per_m.setdefault(l["market"], {}).setdefault(k, []).append(l)
     new, i = [], 0
-    while len(new) < cap and any(by_niche.values()):
-        k = act[i % len(act)]; i += 1
-        if by_niche[k]: new.append(by_niche[k].pop(0))
+    while len(new) < cap and any(v for d in per_m.values() for v in d.values()):
+        for m in list(per_m):
+            if len(new) >= cap: break
+            d = per_m[m]; ks = [k for k in act if d.get(k)]
+            if ks: new.append(d[ks[len(new) % len(ks)]].pop(0))
     leads = new + leads
     json.dump(leads, open(LEADS_PATH, "w"), ensure_ascii=False, indent=0)
     nxt, nd = N.next_niche(CFG)
     json.dump({"last_run": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "active": act,
                "labels": {k: CFG["niches"][k]["label"] for k in CFG["niches"]}, "markets": mkts,
                "next_niche": nxt, "next_date": nd.isoformat() if nd else None,
-               "cities_today": cities_today, "new_today": len(new)},
+               "cities_today": cities_today if SCAN else prev.get("cities_today", []),
+               "new_today": (done_today + len(new)) if SCAN else (done_today if prev.get("scan_day") == day_s else 0),
+               "scan_day": day_s if (SCAN or prev.get("scan_day") == day_s) else prev.get("scan_day", ""),
+               "scan_count": (done_today + len(new)) if SCAN else int(prev.get("scan_count", 0)),
+               "scan_limit": CFG["max_new_leads_per_run"],
+               "scan_seq": seq + 1 if SCAN and cap > 0 else seq,
+               "last_scan": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()) if SCAN else prev.get("last_scan", "")},
               open(META_PATH, "w"), ensure_ascii=False, indent=1)
     print(f"NEW={len(new)} TOTAL={len(leads)} LIVE={sum(1 for l in leads if l.get('live'))}")
 

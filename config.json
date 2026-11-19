@@ -5,7 +5,7 @@
  "seller_wa": "917522805545",
  "seller_fb": "",
  "demo_days": 120,
- "max_new_leads_per_run": 25,
+ "max_new_leads_per_run": 30,
  "radius_m": 9000,
  "enabled_cities": [],
  "markets": {
