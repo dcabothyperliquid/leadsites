@@ -330,19 +330,33 @@ def pitch(l, url, url5=""):
         cost = (f"Pasand aaye toh aapki real photos aur details ke saath final kar dunga: 1 page {cur}{price}" + (f", 5 page Pro {cur}{p5}" if p5 else "") + ".") if two else f"Pasand aaye toh {cur}{price} mein aapki real photos aur details ke saath final kar dunga."
         return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{links}\n"
                 f"{cost} Koi change chahiye toh bata dijiye.{contact}")
-    # English: human-style DM (varied hook per lead, price in USD, no seller WA link -- they are already chatting on WhatsApp)
-    NOUN = {"salon": "salons", "clinic": "clinics", "restaurant": "restaurants", "garage": "garages", "gym": "gyms", "bakery": "bakeries"}
+    # English, localised per market (UK / UAE / Australia / US wording), varied hook per lead, USD prices
     h = int(str(l.get("id", "0"))[:8], 16) % 3 if re.fullmatch(r"[0-9a-f]{8,}", str(l.get("id", ""))[:8] or "x") else 0
-    hook = [f"Hi, is this {l['name']}?",
-            f"Hey, quick question, does {l['name']} have its own website?",
-            f"Hi, I came across {l['name']} while looking at local {NOUN[nk]} in {l['city']}."][h]
-    intro = f"We're {brand}, we build websites for local businesses. We couldn't find one for you, so we made a quick demo where {BENEFIT_EN[nk]}:"
+    nm = l["name"]
+    LOC = {
+      "UK": dict(hooks=[f"Hello, is this {nm}?", f"Hello, quick question, does {nm} have its own website?", f"Hello, we searched for {nm} online and couldn't find a website."],
+                 tail="Happy to change anything first, no pressure at all.",
+                 close="A proper website builds trust and brings you new customers who search online before they visit."),
+      "AE": dict(hooks=[f"Hello, is this {nm}?", f"Hello, may I ask if {nm} has its own website?", f"Hello, we looked for {nm} online and couldn't find a website."],
+                 tail="Happy to adjust anything first, and no problem at all if it's not the right time.",
+                 close="A proper website builds trust and brings you new customers who search online before they visit."),
+      "AU": dict(hooks=[f"Hi there, is this {nm}?", f"Hi, quick question, does {nm} have a website?", f"Hi there, we had a look for {nm} online and couldn't find a website."],
+                 tail="Happy to tweak anything first, and no worries at all if it's not the right time.",
+                 close="A proper website builds trust and brings in new customers who check you out online before they visit."),
+      "US": dict(hooks=[f"Hi, is this {nm}?", f"Hey, quick question, does {nm} have its own website?", f"Hi, we looked for {nm} online and couldn't find a website."],
+                 tail="Happy to change anything first, and no worries if it's not the right time.",
+                 close="A proper website builds trust and brings you new customers who search online before they visit."),
+    }
+    t = LOC.get(l.get("market"), LOC["US"])
+    hook = t["hooks"][h]
+    who = f"We're {brand}, we build websites for local businesses."
+    demo = (f"We made a quick demo where {BENEFIT_EN[nk]}:" if h == 2 else f"We couldn't find one online, so we made a quick demo where {BENEFIT_EN[nk]}:")
     links = (f"1-page: {url}\n5-page: {url5}" if two else url)
     if two:
-        cost = f"If you like one, we can finish it with your real photos and details: ${price} for the 1-page or ${p5} for the 5-page (USD). Happy to change anything first, and no worries at all if it's not the right time."
+        cost = f"If you like one, we can finish it with your real photos and details: ${price} for the 1-page or ${p5} for the 5-page (USD). {t['tail']}"
     else:
-        cost = f"If you like it, we can finish it with your real photos and details for ${price} (USD). Happy to change anything first, and no worries at all if it's not the right time."
-    return f"{hook} {intro}\n{links}\n{cost}\nA proper website builds trust and brings you new customers who search before they visit."
+        cost = f"If you like it, we can finish it with your real photos and details for ${price} (USD). {t['tail']}"
+    return f"{hook} {who} {demo}\n{links}\n{cost}\n{t['close']}"
 
 def reach(l, text):
     """Primary outreach link + channel list. WhatsApp when a mobile exists, Facebook Messenger otherwise."""
