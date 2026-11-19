@@ -7,6 +7,7 @@ Leads tab -- together max `max_new_leads_per_run` (=30) per UTC day. Push-trigge
 * Interleaves niches so one niche can't flood the daily batch."""
 import json, re, time, hashlib, urllib.request, urllib.parse, os, shutil
 import niches as N
+import emailutil as U
 
 CFG = json.load(open("config.json"))
 LEADS_PATH, META_PATH = "data/leads.json", "data/meta.json"
@@ -154,6 +155,7 @@ def main():
                 ph = norm_phone(";".join(t.get(k, "") for k in ("phone", "contact:phone", "contact:mobile")), market["cc"], mk)
                 fb = fb_handle(t)
                 nk, sub = N.classify(t, CFG)
+                em = U.clean_email(t.get("email") or t.get("contact:email") or "")
                 if not (ph or fb) or nk not in by_niche: continue
                 lid = hashlib.md5(f'{e["type"]}{e["id"]}'.encode()).hexdigest()[:10]
                 if lid in seen: continue
@@ -165,7 +167,8 @@ def main():
                     t.get("addr:suburb", ""), t.get("addr:city", name)] if x)
                 by_niche[nk].append({"id": lid, "name": nm[:80], "niche": nk, "sub": sub, "cat": sub, "city": name, "market": mk,
                                      "phone": ph, "fb": fb, "addr": addr, "hours": t.get("opening_hours", ""), "lat": la, "lon": lo,
-                                     "live": True, "found": time.strftime("%Y-%m-%d")})
+                                     "live": True, "found": time.strftime("%Y-%m-%d"),
+                                     **({"email": em, "email_src": "osm"} if em else {}), "email_checked": time.strftime("%Y-%m-%d")})
             time.sleep(5)
     # round-robin over niches so the daily batch stays balanced
     # balanced pick: round-robin over countries (and niches inside each country), so 30 = ~10 per country; short country -> others fill

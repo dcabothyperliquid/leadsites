@@ -1,0 +1,64 @@
+name: Find emails + send proposals
+
+on:
+  schedule:
+    - cron: "10 */3 * * *"     # every 3h; each run only mails leads whose LOCAL time is inside config.email.hours (Mon-Fri)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "DRY RUN: print 3 draft emails in the log, send nothing"
+        required: false
+        type: boolean
+        default: false
+      test_to:
+        description: "TEST: send ONE draft to this address only (your own email), no records"
+        required: false
+        default: ""
+      enrich_only:
+        description: "Only look for emails, do not send"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leads
+  cancel-in-progress: false
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Find emails (OpenStreetMap tags)
+        run: python scripts/emails.py
+      - name: Send proposals
+        if: ${{ github.event.inputs.enrich_only != 'true' }}
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          TEST_TO: ${{ github.event.inputs.test_to }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          MAIL_FROM_NAME: ${{ secrets.MAIL_FROM_NAME }}
+          MAIL_REPLY_TO: ${{ secrets.MAIL_REPLY_TO }}
+          TURSO_URL: ${{ secrets.TURSO_URL }}
+          TURSO_TOKEN: ${{ secrets.TURSO_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python scripts/mailer.py
+      - name: Commit
+        run: |
+          git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/leads.json data/outbox.json 2>/dev/null || git add data/leads.json
+          git diff --cached --quiet && echo "nothing new" && exit 0
+          git commit -qm "email: $(date -u +%F-%H)"
+          for i in 1 2 3; do git pull --rebase -q && git push && break || sleep 5; done

@@ -331,5 +331,19 @@
   "AE",
   "AU"
  ],
- "site_url": "https://naemstudio.github.io"
+ "site_url": "https://naemstudio.github.io",
+ "email": {
+  "enabled": false,
+  "markets": [
+   "AU",
+   "AE"
+  ],
+  "daily_cap": 15,
+  "hours": [
+   9,
+   16
+  ],
+  "weekdays_only": true,
+  "address": ""
+ }
 }
