@@ -6,7 +6,7 @@ CFG = json.load(open("config.json"))
 OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
 USER, REPO = OWNER_REPO.split("/")
 BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "10"   # bump to rebuild every page + pitch
+VER = "11"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -39,6 +39,25 @@ NICHE = {
     items=[("🎂","Custom Cakes"),("🧁","Pastries"),("🍪","Cookies"),("🥖","Breads"),("🥐","Snacks"),("🎉","Party Orders")],
     why=[("📲","Order on WhatsApp","Share your design idea, we reply fast."),("🕘","Open hours","Know when to pick up."),("📍","Easy to find","One tap opens the map.")]),
 }
+
+# ── richer per-niche content: (name, description, sample price) ──
+CONTENT = {
+ "salon": dict(menu=[("Haircut & Styling","Wash, cut and finish",30),("Colour & Highlights","Full colour, balayage, toning",70),("Facial & Clean-up","Deep cleanse and glow",40),("Bridal & Makeup","Trial and event day",120),("Manicure & Pedicure","Shape, polish, care",35),("Threading & Waxing","Quick and gentle",15)],
+   steps=[("Pick a service","Choose what you need from the menu."),("Send a message","WhatsApp or Messenger, whichever you like."),("Get your slot","We confirm a time and you walk in.")],
+   faq=[("Do I need to book?","Booking is recommended so we can keep your slot. Walk-ins are welcome when we have space."),("How do I book?","Tap the button and send us a message with your preferred service and time."),("Can I reschedule?","Yes, just message us and we will move your slot.")]),
+ "clinic": dict(menu=[("General Consultation","See a doctor for any concern",40),("Health Check-ups","Routine tests and advice",90),("Vaccinations","Adults and children",30),("Follow-up Care","Review and ongoing support",25),("Family Care","Care for the whole family",50),("Walk-in Hours","Ask for today's availability",None)],
+   steps=[("Message us","Tell us what you need and your preferred time."),("Get confirmed","We reply with an appointment slot."),("Visit the clinic","Arrive a few minutes early and we take it from there.")],
+   faq=[("How do I book an appointment?","Send us a message on WhatsApp or Messenger, or call during opening hours."),("Do you take walk-ins?","Please message first so we can tell you the best time to come."),("What should I bring?","Bring any previous reports or prescriptions that relate to your visit.")]),
+ "dental": dict(menu=[("Check-up & Cleaning","Exam, scale and polish",60),("Fillings & Root Canal","Comfortable, careful treatment",80),("Braces & Aligners","Straighter smiles",None),("Teeth Whitening","Brighter in one visit",150),("Kids Dentistry","Gentle care for little ones",35),("Implants & Crowns","Long-lasting restorations",None)],
+   steps=[("Message us","Share your concern and preferred time."),("Get confirmed","We reply with an appointment slot."),("Visit the clinic","Relaxed, gentle care from check-in to check-out.")],
+   faq=[("How often should I get a check-up?","Most people benefit from a check-up and clean every six months, or as your dentist advises."),("Do you treat children?","Yes, we welcome patients of all ages."),("How do I book?","Send us a message on WhatsApp or Messenger, or call us.")]),
+ "restaurant": dict(menu=[("Starters","Light bites to begin",6),("Main Course","Our house favourites",14),("Breads & Rice","Fresh and fragrant",4),("Desserts","A sweet finish",6),("Beverages","Hot, cold and fresh",3),("Chef's Specials","Changes with the season",18)],
+   steps=[("Browse the menu","See what's cooking today."),("Message us","Order or reserve a table in one message."),("Enjoy","Dine in or take away.")],
+   faq=[("Can I reserve a table?","Yes, send us a message with the date, time and number of guests."),("Do you do takeaway?","Yes, message your order and we will tell you when it is ready."),("Do you cater for dietary needs?","Tell us your needs when you message and we will guide you.")]),
+}
+CUR_SCALE = {"₹": 80, "AED ": 4}
+GAL_EMOJI = {"salon": "💇✨💅🌿", "clinic": "🩺🏥💊🌿", "dental": "🦷😁✨🪥", "restaurant": "🍛🥗🍰🍽️", "garage": "🔧🚗🛠️🛞", "gym": "🏋️🏃🧘💪", "bakery": "🎂🥐🍪🥖"}
+
 DAYS = {"Mo": "Mon", "Tu": "Tue", "We": "Wed", "Th": "Thu", "Fr": "Fri", "Sa": "Sat", "Su": "Sun", "PH": "Holidays"}
 
 def pretty_hours(h):
@@ -88,15 +107,27 @@ section{{padding:22px 0 2px}}h2{{margin:0 0 12px;font-size:22px;color:var(--d)}}
 .final h2{{color:#fff}}.final .cta{{margin-top:14px}}
 footer{{text-align:center;font-size:12px;color:#6b7280;padding:16px 16px 84px}}
 .fab{{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.28)}}
-@media(max-width:640px){{.whys{{display:none}}.card i{{font-size:22px;margin-bottom:2px}}}}
+.mn{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}}
+.mi{{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 15px;background:var(--l);border-radius:14px}}
+.mi b{{display:block;font-size:15.5px}}.mi span{{font-size:13px;color:#6b7280}}.mi em{{font-style:normal;font-weight:700;color:var(--d);white-space:nowrap;font-size:15px}}
+.stp{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}}
+.stp div{{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid #eee;border-radius:14px}}
+.stp i{{flex:none;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}}
+.stp b{{display:block;font-size:15px}}.stp span{{font-size:13.5px;color:#6b7280}}
+.gl{{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}}.gl div{{aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,var(--l),#fff);border:1px dashed var(--c);display:flex;align-items:center;justify-content:center;font-size:30px}}
+details{{border-top:1px solid #eee;padding:12px 0}}details:last-of-type{{border-bottom:1px solid #eee}}
+summary{{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;font-size:15.5px}}summary:after{{content:"+";color:var(--c);font-weight:700}}details[open] summary:after{{content:"–"}}details p{{margin:8px 0 0;color:#6b7280;font-size:14.5px}}
+@media(max-width:640px){{.gals{{display:none}}.mi{{padding:11px 13px}}.stp div{{padding:11px 12px}}}}
 </style></head><body>
 {exp}<div class="bar"><b>{emoji} {name}</b>{call_bar}</div>
 <div class="hero"><div class="em">{emoji}</div><span class="kick">{sublabel} · {city}</span>
 <h1>{name}</h1><p>{tag} {subline}</p>
 <div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a>{call_hero}</div></div>
 <div class="wrap">
-<section><h2>{svc_title}</h2><div class="grid">{items}</div><p class="note">Sample content for this preview. Your real services and prices go here once you approve.</p></section>
-<section class="whys"><h2>Why customers love it</h2><div class="why">{why}</div></section>
+<section><h2>{svc_title}</h2><div class="mn">{menu}</div><p class="note">Sample services and prices. Your real ones go here once you approve.</p></section>
+<section><h2>How it works</h2><div class="stp">{steps}</div></section>
+<section class="gals"><h2>Gallery</h2><div class="gl">{gal}</div><p class="note">Your own photos go here.</p></section>
+<section><h2>Good to know</h2>{faq}</section>
 <section><h2>Visit us</h2><div class="info">{addr_row}{hours_row}{phone_row}</div>
 {map}<p style="margin:14px 0 0"><a class="pill p-ghost" href="{maps_url}" target="_blank" rel="noopener">📍 Open in Google Maps</a></p></section>
 </div>
@@ -117,7 +148,15 @@ def build_page(l):
     if ph: wa_url = f'https://wa.me/{ph}?text=' + urllib.parse.quote(n["wa"].format(name=l["name"]))
     else:  wa_url = f'https://m.me/{l["fb"]}'
     cta_txt = n["cta"] if ph else "Message us on Facebook"
-    items = "".join(f'<div class="card"><i>{e}</i>{html.escape(t)}</div>' for e, t in n["items"])
+    cur = CFG["markets"].get(l.get("market"), {}).get("currency", "")
+    sc = CUR_SCALE.get(cur, 1)
+    ct = CONTENT.get(k) or dict(menu=[(t, "", None) for e, t in n["items"]],
+        steps=[("Message us","Tell us what you need."),("Get confirmed","We reply with a time."),("Visit us","We look forward to seeing you.")],
+        faq=[("How do I get in touch?","Tap the button and send us a message, or call us."),("Where are you?","See the map and address below.")])
+    menu = "".join(f'<div class="mi"><p style="margin:0"><b>{html.escape(a)}</b><span>{html.escape(d)}</span></p>' + (f'<em>from {html.escape(cur)}{p*sc}</em>' if p else '<em>On request</em>') + '</div>' for a, d, p in ct["menu"])
+    steps = "".join(f'<div><i>{i}</i><p style="margin:0"><b>{html.escape(a)}</b><span>{html.escape(d)}</span></p></div>' for i, (a, d) in enumerate(ct["steps"], 1))
+    faq = "".join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q, a in ct["faq"])
+    gal = "".join(f"<div>{e}</div>" for e in re.findall(r"[^\u200d\ufe0f][\ufe0f\u200d]?", GAL_EMOJI.get(k, "✨✨✨✨"))[:4])
     why = "".join(f'<div><i>{e}</i><p style="margin:0"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></p></div>' for e, t, d in n["why"])
     addr = l.get("addr", "")
     addr_row = f'<div class="row"><small>Address</small>{html.escape(addr)}</div>' if addr else ""
@@ -140,7 +179,7 @@ def build_page(l):
                       call_bar=(f'<a class="pill p-call" href="tel:+{ph}">Call</a>' if ph else ""),
                       call_hero=(f'<a class="pill p-ghost" href="tel:+{ph}">📞 Call now</a>' if ph else ""),
                       phone_row=(f'<div class="row"><small>Phone</small><a href="tel:+{ph}">+{ph}</a></div>' if ph else ""), wa_url=html.escape(wa_url), svc_title=html.escape(n["svc_title"]),
-                      items=items, why=why, addr_row=addr_row, hours_row=hours_row, map=mp, maps_url=html.escape(maps_url),
+                      menu=menu, steps=steps, gal=gal, faq=faq, why=why, addr_row=addr_row, hours_row=hours_row, map=mp, maps_url=html.escape(maps_url),
                       ld=json.dumps(ld, ensure_ascii=False).replace("</", "<\\/"))
 
 def slug(l):
