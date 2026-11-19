@@ -316,6 +316,7 @@ BENEFIT_EN = {"salon": "clients can book straight on WhatsApp", "clinic": "patie
 def pitch(l, url, url5=""):
     m = CFG["markets"][l["market"]]
     seller, price, cur = CFG["seller_name"], m["price"], m["currency"]
+    if cur[-1:].isalpha(): cur += " "   # "AED" -> "AED 349" (config editor strips trailing spaces)
     p5 = m.get("price5")
     brand = CFG.get("brand") or seller
     bits = []
