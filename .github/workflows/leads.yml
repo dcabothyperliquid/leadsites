@@ -53,12 +53,19 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+      - name: Check out the Naem Studio site (demos are published there)
+        uses: actions/checkout@v4
+        with:
+          repository: naemstudio/naemstudio.github.io
+          token: ${{ secrets.SITE_TOKEN }}
+          path: site
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Find leads
         env:
           ONLY_CITY: ${{ github.event.inputs.only_city }}
+          SITE_DIR: site
         run: python scripts/finder.py
       - name: Manual demo (only if a name was given)
         if: ${{ github.event.inputs.manual_name != '' }}
@@ -69,11 +76,22 @@ jobs:
           M_MARKET: ${{ github.event.inputs.manual_market }}
           M_PHONE: ${{ github.event.inputs.manual_phone }}
           M_FB: ${{ github.event.inputs.manual_fb }}
+          SITE_DIR: site
         run: python scripts/manual.py
       - name: Generate demo sites
         env:
           REGEN_PITCHES: ${{ github.event.inputs.regen_pitches }}
+          SITE_DIR: site
         run: python scripts/generate.py | tee /tmp/gen.log
+      - name: Publish demos to naemstudio.github.io
+        run: |
+          cd site
+          git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A d
+          git diff --cached --quiet && echo "site: nothing new" && exit 0
+          git commit -qm "demos: $(date -u +%F)"
+          git pull --rebase -q || true
+          git push
       - name: Commit
         run: |
           git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"

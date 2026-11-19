@@ -3,10 +3,12 @@ import json, os, re, html, shutil, datetime, urllib.parse
 import niches as N
 
 CFG = json.load(open("config.json"))
-OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
-USER, REPO = OWNER_REPO.split("/")
-BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "12"   # bump to rebuild every page + pitch
+# Demos live in the Naem Studio site repo (checked out at SITE_DIR), served from naemstudio.github.io/d/<slug>/ (1-page) and /d/<slug>/pro/ (5-page)
+SITE = os.environ.get("SITE_DIR", "site")
+SITE_URL = CFG.get("site_url", "https://naemstudio.github.io")
+BASE = f"{SITE_URL}/d"
+PRO_TPL = {"salon": "salon-pro", "clinic": "clinic-pro", "restaurant": "restaurant-pro"}   # niches that have a 5-page template in <site>/demos/
+VER = "13"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -245,9 +247,59 @@ def build_page(l):
                       menu=menu, steps=steps, faq=faq, addr_row=addr_row, hours_row=hours_row, map=mp, maps_url=html.escape(maps_url),
                       ld=json.dumps(ld, ensure_ascii=False).replace("</", "<\\/"))
 
+def _cur(l):
+    cur = CFG["markets"].get(l.get("market"), {}).get("currency", "£")
+    return cur, CUR_SCALE.get(cur, 1)
+
+def build_pro(l):
+    """5-page Pro demo for one lead, made from the sample Pro pages in <site>/demos/<niche>-pro. -> {filename: html} or {}"""
+    t = PRO_TPL.get(style_key(l)); src = os.path.join(SITE, "demos", t or "")
+    if not t or not os.path.isdir(src): return {}
+    esc, q = html.escape, lambda v: urllib.parse.quote(v, safe="")
+    name, city, ph = l["name"], l["city"], l.get("phone")
+    home = open(os.path.join(src, "index.html"), encoding="utf-8").read()
+    m = re.search(r"<title>(.*?)\s*\|\s*[^<]*? in ([^<]*)</title>", home); sname, scity = html.unescape(m.group(1)), m.group(2).strip()
+    sub = l.get("sub") or l.get("cat") or "Business"
+    la, lo, addr = l.get("lat"), l.get("lon"), l.get("addr", "")
+    maps_url = f"https://www.google.com/maps?q={la},{lo}" if la is not None and lo is not None else "https://www.google.com/maps/search/" + q(f"{name} {addr} {city}")
+    cur, sc = _cur(l)
+    hrs = pretty_hours(l.get("hours", ""))
+    visit = (f'<p class="sub">{esc(addr)}</p>' if addr else "") + (f'<div class="hrs"><div><span>Opening hours</span><span>{esc(hrs)}</span></div></div>' if hrs else "")
+    story = f"{esc(name)} is a local {esc(sub.lower())} in {esc(city)}. This is where your story goes: how you started, what you care about and who looks after your customers. We write it with you once you approve the demo."
+    if l.get("found") and not l.get("keep"):
+        d = datetime.date.fromisoformat(l["found"]) + datetime.timedelta(days=CFG.get("demo_days", 14))
+        rib = f'<div class="rib">Free preview made for {esc(name)} · available until {d.strftime("%d %b %Y")}</div>'
+    else: rib = f'<div class="rib">Preview made for {esc(name)}</div>'
+    foot = f'<footer>Demo preview made for {esc(name)} by <a href="{SITE_URL}">Naem Studio</a>. Text, prices and services are samples until you approve. Want it live on your own domain? <a href="{SITE_URL}/#contact">Message us</a>.</footer>'
+    out = {}
+    for f in sorted(os.listdir(src)):
+        if not f.endswith(".html"): continue
+        s = open(os.path.join(src, f), encoding="utf-8").read()
+        s = re.sub(r'https://www\.google\.com/maps/search/[^"\']+', html.escape(maps_url), s)
+        s = re.sub(r"<title>.*?</title>", f"<title>{esc(name)} | {esc(sub)} in {esc(city)}</title>", s, count=1)
+        for old, new in ((q(sname), q(name)), (esc(sname), esc(name)), (sname, esc(name))):
+            s = s.replace(old, new)
+        s = s.replace(f'"addressLocality":"{scity}"', '"addressLocality":' + json.dumps(city, ensure_ascii=False).replace("</", "<\\/")).replace(scity, esc(city))
+        if ph: s = s.replace("447700900123", ph)
+        else:
+            s = re.sub(r'<a[^>]*href="tel:\+447700900123"[^>]*>.*?</a>', "", s, flags=re.S).replace(',"telephone":"+447700900123"', "")
+            s = s.replace("</style>", ".dock{grid-template-columns:1.4fr 1fr!important}.qa{grid-template-columns:repeat(2,1fr)!important}</style>", 1)
+        if CFG.get("seller_wa"): s = s.replace("917522805545", CFG["seller_wa"])
+        s = re.sub(r"£(\d+)", lambda x: f"{cur}{int(x.group(1)) * sc}", s)
+        for h2 in ("What people say", "Meet the team", "Guest favourites"):   # invented reviews / staff / dishes never go on a real business's page
+            s = re.sub(r'<section class="rv"[^>]*><h2>' + h2 + r'</h2>.*?</section>\s*', "", s, flags=re.S)
+        s = re.sub(r'<div class="chips">.*?</div>', "", s, count=1, flags=re.S)
+        s = re.sub(r'<div class="rib">.*?</div>', rib, s, count=1)
+        s = re.sub(r"<footer>.*?</footer>", foot, s, count=1, flags=re.S)
+        s = re.sub(r'(<h2>Our story</h2><p class="sub">).*?(</p>)', lambda x: x.group(1) + story + x.group(2), s, count=1, flags=re.S)
+        s = re.sub(r'<div class="hrs" id="hrs">(?:<div data-d="\d"><span>[^<]*</span><span>[^<]*</span></div>)+</div>', visit, s)
+        s = s.replace('fetch("../photos.json")', 'fetch("/demos/photos.json")')
+        out[f] = s
+    return out
+
 def slug(l):
     s = re.sub(r"[^a-z0-9]+", "-", l["name"].lower()).strip("-")[:30] or "biz"
-    return f'{l["city"].lower()}-{s}-{l["id"][:5]}'
+    return re.sub(r"[^a-z0-9]+", "-", f'{l["city"].lower()}-{s}-{l["id"][:5]}').strip("-")
 
 # ── pitches: short, specific to the niche, Hinglish for India ──
 BENEFIT_HI = {"salon": "customers seedha WhatsApp pe booking kar sakte hain",
@@ -261,9 +313,10 @@ BENEFIT_EN = {"salon": "clients can book straight on WhatsApp", "clinic": "patie
               "garage": "customers can call or WhatsApp to book a service", "gym": "people can ask about a free trial on WhatsApp",
               "bakery": "customers can order cakes on WhatsApp"}
 
-def pitch(l, url):
+def pitch(l, url, url5=""):
     m = CFG["markets"][l["market"]]
     seller, price, cur = CFG["seller_name"], m["price"], m["currency"]
+    p5 = m.get("price5")
     brand = CFG.get("brand") or seller
     bits = []
     if CFG.get("seller_wa"): bits.append(f'WhatsApp: https://wa.me/{CFG["seller_wa"]}')
@@ -271,11 +324,18 @@ def pitch(l, url):
     if CFG.get("seller_contact"): bits.append(CFG["seller_contact"])
     contact = ("\n" + " | ".join(bits)) if bits else ""
     nk = l.get("niche") if l.get("niche") in BENEFIT_HI else "restaurant"
+    two = bool(url5)
     if m["lang"] == "hinglish":
-        return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine ek demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{url}\n"
-                f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath). Koi change chahiye toh bata dijiye.{contact}")
-    return (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
-            f"If you like it, I can put it live as a one-page site under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}\n"
+        links = (f"1 page: {url}\n5 page (Pro): {url5}" if two else url)
+        cost = (f"Pasand aaye toh aapke naam se live kar dunga (domain/hosting setup ke saath): 1 page {cur}{price}" + (f", 5 page Pro {cur}{p5}" if p5 else "") + ".") if two else f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath)."
+        return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{links}\n"
+                f"{cost} Koi change chahiye toh bata dijiye.{contact}")
+    links = (f"1-page: {url}\n5-page Pro: {url5}" if two else url)
+    cost = (f"If you like one, I can put it live under your own name (domain & hosting setup included): 1-page for {cur}{price}" + (f", 5-page Pro for {cur}{p5}" if p5 else "") + ".") if two else f"If you like it, I can put it live as a one-page site under your own name for {cur}{price} (domain & hosting setup included)."
+    return (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built two quick demos where {BENEFIT_EN[nk]}:\n{links}\n"
+            f"{cost} Happy to tweak anything.{contact}\n"
+            f"If you'd rather not hear from me, just say and I won't message again.") if two else (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
+            f"{cost} Happy to tweak anything.{contact}\n"
             f"If you'd rather not hear from me, just say and I won't message again.")
 
 def reach(l, text):
@@ -292,8 +352,8 @@ def expire(leads):
     for l in leads:
         if not l.get("url") or l.get("keep") or l.get("expired") or not l.get("found"): continue
         if (today - datetime.date.fromisoformat(l["found"])).days >= days:
-            shutil.rmtree("docs/s/" + l["url"].rstrip("/").split("/")[-1], ignore_errors=True)
-            l.update(expired=True, live=False, url="", pitch="", wa="")
+            shutil.rmtree(f"{SITE}/d/" + l["url"].rstrip("/").split("/")[-1], ignore_errors=True)
+            l.update(expired=True, live=False, url="", url5="", pitch="", wa="")
             gone += 1
     if gone: print(f"EXPIRED demos deleted: {gone}")
 
@@ -305,21 +365,26 @@ def main():
         if not l.get("live") or l.get("expired"): continue
         if l.get("url") and l.get("ver") == VER: continue
         s = slug(l)
-        d = f"docs/s/{s}"; os.makedirs(d, exist_ok=True)
+        d = f"{SITE}/d/{s}"; os.makedirs(d, exist_ok=True)
         open(f"{d}/index.html", "w", encoding="utf-8").write(build_page(l))
+        shutil.rmtree(f"{d}/pro", ignore_errors=True)
+        pro = build_pro(l)
+        if pro:
+            os.makedirs(f"{d}/pro", exist_ok=True)
+            for fn, h in pro.items(): open(f"{d}/pro/{fn}", "w", encoding="utf-8").write(h)
         l["url"] = f"{BASE}/{s}/"
+        l["url5"] = f"{BASE}/{s}/pro/" if pro else ""
         l["ver"] = VER
-        l["pitch"] = pitch(l, l["url"])
+        l["pitch"] = pitch(l, l["url"], l["url5"])
         l["wa"] = reach(l, l["pitch"])
         made += 1
         if l.get("manual"): print("MANUAL DEMO:", l["url"]); print(l["pitch"])
     if os.environ.get("REGEN_PITCHES", "").lower() in ("1", "true", "yes"):   # seller name / price changed -> pitches only
         for l in leads:
             if l.get("url"):
-                l["pitch"] = pitch(l, l["url"])
+                l["pitch"] = pitch(l, l["url"], l.get("url5", ""))
                 l["wa"] = reach(l, l["pitch"])
     json.dump(leads, open("data/leads.json", "w"), ensure_ascii=False, indent=0)
-    open("docs/index.html", "w").write("<!doctype html><meta charset=utf-8><meta name=robots content=noindex><title>demo sites</title><p>Demo sites live under /s/</p>")
     print(f"GENERATED={made} TOTAL={len(leads)} LIVE={sum(1 for l in leads if l.get('live'))}")
 
 if __name__ == "__main__":

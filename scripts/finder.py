@@ -93,7 +93,7 @@ def migrate(leads):
         ph = l.get("phone")
         if not ((ph and is_mobile(ph, l["market"])) or l.get("fb")):
             dropped += 1
-            if l.get("url"): shutil.rmtree("docs/s/" + l["url"].rstrip("/").split("/")[-1], ignore_errors=True)
+            if l.get("url"): shutil.rmtree(os.path.join(os.environ.get("SITE_DIR", "site"), "d", l["url"].rstrip("/").split("/")[-1]), ignore_errors=True)
             continue
         if "niche" not in l:
             l["sub"] = l.get("cat", "")
