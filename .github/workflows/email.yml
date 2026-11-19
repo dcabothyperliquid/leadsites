@@ -14,8 +14,13 @@ on:
         description: "TEST: send ONE draft to this address only (your own email), no records"
         required: false
         default: ""
+      regen_drafts:
+        description: "Rebuild ALL email drafts (after changing the style note / prices)"
+        required: false
+        type: boolean
+        default: false
       enrich_only:
-        description: "Only look for emails, do not send"
+        description: "Only look for emails + build drafts, do not send"
         required: false
         type: boolean
         default: false
@@ -30,7 +35,7 @@ concurrency:
 jobs:
   email:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -38,6 +43,11 @@ jobs:
           python-version: "3.12"
       - name: Find emails (OpenStreetMap tags)
         run: python scripts/emails.py
+      - name: Build email drafts
+        env:
+          REGEN_DRAFTS: ${{ github.event.inputs.regen_drafts }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python scripts/drafts.py
       - name: Send proposals
         if: ${{ github.event.inputs.enrich_only != 'true' }}
         env:
@@ -58,7 +68,7 @@ jobs:
       - name: Commit
         run: |
           git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"
-          git add data/leads.json data/outbox.json 2>/dev/null || git add data/leads.json
+          git add data/leads.json data/outbox.json data/email_drafts.json 2>/dev/null || git add -A data
           git diff --cached --quiet && echo "nothing new" && exit 0
           git commit -qm "email: $(date -u +%F-%H)"
           for i in 1 2 3; do git pull --rebase -q && git push && break || sleep 5; done

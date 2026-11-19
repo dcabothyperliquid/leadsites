@@ -333,17 +333,18 @@
  ],
  "site_url": "https://naemstudio.github.io",
  "email": {
-  "enabled": false,
+  "mode": "manual",
   "markets": [
    "AU",
    "AE"
   ],
-  "daily_cap": 15,
+  "daily_cap": 20,
   "hours": [
    9,
    16
   ],
   "weekdays_only": true,
-  "address": ""
+  "address": "",
+  "style_note": ""
  }
 }
