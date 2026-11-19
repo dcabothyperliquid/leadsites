@@ -1,21 +1,229 @@
 {
   "seller_name": "Naem",
   "seller_contact": "",
-  "max_new_leads_per_run": 60,
+  "max_new_leads_per_run": 25,
   "radius_m": 9000,
   "enabled_cities": [],
   "markets": {
-    "IN": {"cc": "91", "currency": "₹", "price": "2,500", "lang": "hinglish",
-           "cities": [["Mumbai",19.076,72.8777],["Delhi",28.6139,77.209],["Bengaluru",12.9716,77.5946],["Pune",18.5204,73.8567],["Hyderabad",17.385,78.4867],["Lucknow",26.8467,80.9462],["Jaipur",26.9124,75.7873],["Ahmedabad",23.0225,72.5714]]},
-    "US": {"cc": "1", "currency": "$", "price": "149", "lang": "en",
-           "cities": [["Austin",30.2672,-97.7431],["Houston",29.7604,-95.3698],["Phoenix",33.4484,-112.074],["Atlanta",33.749,-84.388],["Miami",25.7617,-80.1918]]},
-    "AU": {"cc": "61", "currency": "A$", "price": "199", "lang": "en",
-           "cities": [["Sydney",-33.8688,151.2093],["Melbourne",-37.8136,144.9631],["Brisbane",-27.4698,153.0251],["Perth",-31.9505,115.8605]]}
+    "IN": {
+      "cc": "91",
+      "currency": "₹",
+      "price": "2,500",
+      "lang": "hinglish",
+      "cities": [
+        [
+          "Mumbai",
+          19.076,
+          72.8777
+        ],
+        [
+          "Delhi",
+          28.6139,
+          77.209
+        ],
+        [
+          "Bengaluru",
+          12.9716,
+          77.5946
+        ],
+        [
+          "Pune",
+          18.5204,
+          73.8567
+        ],
+        [
+          "Hyderabad",
+          17.385,
+          78.4867
+        ],
+        [
+          "Lucknow",
+          26.8467,
+          80.9462
+        ],
+        [
+          "Jaipur",
+          26.9124,
+          75.7873
+        ],
+        [
+          "Ahmedabad",
+          23.0225,
+          72.5714
+        ],
+        [
+          "Kanpur",
+          26.4499,
+          80.3319
+        ],
+        [
+          "Patna",
+          25.5941,
+          85.1376
+        ],
+        [
+          "Bhopal",
+          23.2599,
+          77.4126
+        ],
+        [
+          "Kota",
+          25.2138,
+          75.8648
+        ],
+        [
+          "Indore",
+          22.7196,
+          75.8577
+        ],
+        [
+          "Nagpur",
+          21.1458,
+          79.0882
+        ],
+        [
+          "Surat",
+          21.1702,
+          72.8311
+        ],
+        [
+          "Chandigarh",
+          30.7333,
+          76.7794
+        ]
+      ]
+    },
+    "US": {
+      "cc": "1",
+      "currency": "$",
+      "price": "149",
+      "lang": "en",
+      "cities": [
+        [
+          "Austin",
+          30.2672,
+          -97.7431
+        ],
+        [
+          "Houston",
+          29.7604,
+          -95.3698
+        ],
+        [
+          "Phoenix",
+          33.4484,
+          -112.074
+        ],
+        [
+          "Atlanta",
+          33.749,
+          -84.388
+        ],
+        [
+          "Miami",
+          25.7617,
+          -80.1918
+        ]
+      ]
+    },
+    "AU": {
+      "cc": "61",
+      "currency": "A$",
+      "price": "199",
+      "lang": "en",
+      "cities": [
+        [
+          "Sydney",
+          -33.8688,
+          151.2093
+        ],
+        [
+          "Melbourne",
+          -37.8136,
+          144.9631
+        ],
+        [
+          "Brisbane",
+          -27.4698,
+          153.0251
+        ],
+        [
+          "Perth",
+          -31.9505,
+          115.8605
+        ]
+      ]
+    }
   },
-  "categories": {
-    "hairdresser": "Salon", "beauty": "Beauty Studio", "barber": "Barber Shop",
-    "restaurant": "Restaurant", "cafe": "Cafe", "bakery": "Bakery",
-    "dentist": "Dental Clinic", "clinic": "Clinic", "gym": "Gym",
-    "car_repair": "Auto Repair", "tailor": "Tailor", "school": "Coaching / Tuition"
-  }
+  "cities_per_run": 4,
+  "niches": {
+    "salon": {
+      "label": "Salon & Beauty",
+      "tags": {
+        "shop": {
+          "hairdresser": "Salon",
+          "beauty": "Beauty Studio"
+        }
+      }
+    },
+    "clinic": {
+      "label": "Clinic & Dental",
+      "tags": {
+        "amenity": {
+          "dentist": "Dental Clinic",
+          "clinic": "Clinic",
+          "doctors": "Doctor Clinic"
+        }
+      }
+    },
+    "restaurant": {
+      "label": "Restaurant & Cafe",
+      "tags": {
+        "amenity": {
+          "restaurant": "Restaurant",
+          "cafe": "Cafe",
+          "fast_food": "Fast Food"
+        }
+      }
+    },
+    "garage": {
+      "label": "Garage & Auto Repair",
+      "tags": {
+        "shop": {
+          "car_repair": "Auto Repair"
+        }
+      }
+    },
+    "gym": {
+      "label": "Gym & Fitness",
+      "tags": {
+        "leisure": {
+          "fitness_centre": "Gym"
+        },
+        "amenity": {
+          "gym": "Gym"
+        }
+      }
+    },
+    "bakery": {
+      "label": "Bakery & Cakes",
+      "tags": {
+        "shop": {
+          "bakery": "Bakery"
+        }
+      }
+    }
+  },
+  "active_niches": [
+    "salon",
+    "clinic",
+    "restaurant"
+  ],
+  "queue": [
+    "garage",
+    "gym",
+    "bakery"
+  ],
+  "rollout_start": "2026-11-19",
+  "rollout_days": 14
 }

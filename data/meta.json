@@ -1,0 +1,22 @@
+{
+ "last_run": "2026-11-19 03:04 UTC",
+ "active": [
+  "salon",
+  "clinic",
+  "restaurant"
+ ],
+ "labels": {
+  "salon": "Salon & Beauty",
+  "clinic": "Clinic & Dental",
+  "restaurant": "Restaurant & Cafe",
+  "garage": "Garage & Auto Repair",
+  "gym": "Gym & Fitness",
+  "bakery": "Bakery & Cakes"
+ },
+ "next_niche": "garage",
+ "next_date": "2026-12-03",
+ "cities_today": [
+  "Delhi"
+ ],
+ "new_today": 0
+}

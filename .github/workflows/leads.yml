@@ -1,6 +1,9 @@
 name: Find leads + build demo sites
 
 on:
+  push:
+    branches: [main]
+    paths: ["scripts/**", "config.json"]
   schedule:
     - cron: "30 3 * * *"
   workflow_dispatch:
