@@ -4,6 +4,7 @@
   "seller_contact": "",
   "seller_wa": "",
   "seller_fb": "",
+  "demo_days": 14,
   "max_new_leads_per_run": 25,
   "radius_m": 9000,
   "enabled_cities": [],

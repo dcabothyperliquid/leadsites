@@ -107,7 +107,7 @@ def main():
     leads = migrate(leads)
     act = N.active_niches(CFG)
     mkts = N.active_markets(CFG)
-    for l in leads: l["live"] = l.get("niche") in act and l.get("market") in mkts
+    for l in leads: l["live"] = l.get("niche") in act and l.get("market") in mkts and not l.get("expired")
     print("ACTIVE NICHES:", act)
     seen = {l["id"] for l in leads}
     cap = CFG["max_new_leads_per_run"]

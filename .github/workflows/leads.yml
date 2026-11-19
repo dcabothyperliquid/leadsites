@@ -12,6 +12,30 @@ on:
         description: "Only this city (e.g. Pune). Empty = config enabled_cities / all"
         required: false
         default: ""
+      manual_name:
+        description: "MANUAL DEMO: business name (leave empty for normal run)"
+        required: false
+        default: ""
+      manual_niche:
+        description: "salon | clinic | restaurant | garage | gym | bakery"
+        required: false
+        default: "salon"
+      manual_city:
+        description: "City"
+        required: false
+        default: ""
+      manual_market:
+        description: "UK | AE | AU | US | IN"
+        required: false
+        default: "UK"
+      manual_phone:
+        description: "Business mobile (with or without country code)"
+        required: false
+        default: ""
+      manual_fb:
+        description: "Business Facebook page URL or username"
+        required: false
+        default: ""
       regen_pitches:
         description: "Rebuild pitch + WhatsApp links for all leads"
         required: false
@@ -36,6 +60,16 @@ jobs:
         env:
           ONLY_CITY: ${{ github.event.inputs.only_city }}
         run: python scripts/finder.py
+      - name: Manual demo (only if a name was given)
+        if: ${{ github.event.inputs.manual_name != '' }}
+        env:
+          M_NAME: ${{ github.event.inputs.manual_name }}
+          M_NICHE: ${{ github.event.inputs.manual_niche }}
+          M_CITY: ${{ github.event.inputs.manual_city }}
+          M_MARKET: ${{ github.event.inputs.manual_market }}
+          M_PHONE: ${{ github.event.inputs.manual_phone }}
+          M_FB: ${{ github.event.inputs.manual_fb }}
+        run: python scripts/manual.py
       - name: Generate demo sites
         env:
           REGEN_PITCHES: ${{ github.event.inputs.regen_pitches }}

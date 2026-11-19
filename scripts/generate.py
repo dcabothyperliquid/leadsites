@@ -1,12 +1,12 @@
 """Build a niche-specific demo site + pitch + wa.me link for every LIVE lead that has none (or an old template version)."""
-import json, os, re, html, urllib.parse
+import json, os, re, html, shutil, datetime, urllib.parse
 import niches as N
 
 CFG = json.load(open("config.json"))
 OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
 USER, REPO = OWNER_REPO.split("/")
 BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "6"   # bump to rebuild every page + pitch
+VER = "7"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -62,6 +62,7 @@ TPL = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 :root{{--c:{c};--d:{d};--l:{l}}}*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}
 body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1f2937;background:#fff;line-height:1.55}}
 a{{color:inherit}}
+.exp{{background:#111827;color:#fde68a;text-align:center;font-size:12.5px;padding:7px 12px}}
 .bar{{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #eee}}
 .bar b{{flex:1;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 .pill{{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none}}
@@ -88,7 +89,7 @@ section{{padding:38px 0 6px}}h2{{margin:0 0 16px;font-size:22px;color:var(--d)}}
 footer{{text-align:center;font-size:12px;color:#6b7280;padding:22px 16px 96px}}
 .fab{{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.28)}}
 </style></head><body>
-<div class="bar"><b>{emoji} {name}</b>{call_bar}</div>
+{exp}<div class="bar"><b>{emoji} {name}</b>{call_bar}</div>
 <div class="hero"><div class="em">{emoji}</div><span class="kick">{sublabel} · {city}</span>
 <h1>{name}</h1><p>{tag} {subline}</p>
 <div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a>{call_hero}</div></div>
@@ -102,6 +103,11 @@ footer{{text-align:center;font-size:12px;color:#6b7280;padding:22px 16px 96px}}
 <footer>Demo preview made for {name}. Want this live on your own domain? Message the person who sent you this link.</footer>
 <a class="fab" href="{wa_url}" aria-label="WhatsApp">💬</a>
 </body></html>"""
+
+def exp_banner(l):
+    if not l.get("found") or l.get("keep"): return ""
+    d = datetime.date.fromisoformat(l["found"]) + datetime.timedelta(days=CFG.get("demo_days", 14))
+    return f'<div class="exp">Free preview made for {html.escape(l["name"])} · available until {d.strftime("%d %b %Y")}</div>'
 
 def build_page(l):
     k = style_key(l); n = NICHE[k]
@@ -127,7 +133,7 @@ def build_page(l):
         mp = ""
     ld = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": l["name"], **({"telephone": "+" + ph} if ph else {}), 
           "address": {"@type": "PostalAddress", "streetAddress": addr, "addressLocality": l["city"]}}
-    return TPL.format(name=name, city=city, sub=html.escape(l.get("sub") or l.get("cat", "")), sublabel=html.escape(l.get("sub") or l.get("cat", "")),
+    return TPL.format(exp=exp_banner(l), name=name, city=city, sub=html.escape(l.get("sub") or l.get("cat", "")), sublabel=html.escape(l.get("sub") or l.get("cat", "")),
                       tag=html.escape(n["tag"]), subline=html.escape(n["sub"]), cta=html.escape(cta_txt), emoji=n["emoji"],
                       c=n["c"], d=n["d"], l=n["l"],
                       call_bar=(f'<a class="pill p-call" href="tel:+{ph}">Call</a>' if ph else ""),
@@ -177,11 +183,23 @@ def reach(l, text):
     if l.get("phone"): return f'https://wa.me/{l["phone"]}?text=' + urllib.parse.quote(text)
     return l["fb_link"]
 
+def expire(leads):
+    """Demo pages auto-delete after demo_days (unless lead is marked keep=true, e.g. a paying client)."""
+    days, today, gone = CFG.get("demo_days", 14), datetime.date.today(), 0
+    for l in leads:
+        if not l.get("url") or l.get("keep") or l.get("expired") or not l.get("found"): continue
+        if (today - datetime.date.fromisoformat(l["found"])).days >= days:
+            shutil.rmtree("docs/s/" + l["url"].rstrip("/").split("/")[-1], ignore_errors=True)
+            l.update(expired=True, live=False, url="", pitch="", wa="")
+            gone += 1
+    if gone: print(f"EXPIRED demos deleted: {gone}")
+
 def main():
     leads = json.load(open("data/leads.json"))
+    expire(leads)
     made = 0
     for l in leads:
-        if not l.get("live"): continue
+        if not l.get("live") or l.get("expired"): continue
         if l.get("url") and l.get("ver") == VER: continue
         s = slug(l)
         d = f"docs/s/{s}"; os.makedirs(d, exist_ok=True)
@@ -191,6 +209,7 @@ def main():
         l["pitch"] = pitch(l, l["url"])
         l["wa"] = reach(l, l["pitch"])
         made += 1
+        if l.get("manual"): print("MANUAL DEMO:", l["url"]); print(l["pitch"])
     if os.environ.get("REGEN_PITCHES", "").lower() in ("1", "true", "yes"):   # seller name / price changed -> pitches only
         for l in leads:
             if l.get("url"):
