@@ -2,7 +2,7 @@
 
 * Only the ACTIVE niches are searched (start: salon, clinic, restaurant; the queue adds one every rollout_days).
 * Few cities per run (rotating daily, tier-2 cities included) -> polite to Overpass, steady flow of fresh leads.
-* Only businesses with a name + WhatsApp-capable mobile number and NO website. Known chains are skipped.
+* Only businesses with a name + (WhatsApp-capable mobile number and/or Facebook page) and NO website. Known chains are skipped.
 * Interleaves niches so one niche can't flood the daily batch."""
 import json, re, time, hashlib, urllib.request, urllib.parse, os, shutil
 import niches as N
@@ -17,12 +17,18 @@ CHAINS = ("domino", "pizza hut", "mcdonald", "kfc", "burger king", "subway", "st
           "apollo", "fortis", "clove dental", "sabka dentist", "theobroma", "baskin", "chaayos", "biryani by kilo", "behrouz", "faasos",
           "starbucks", "costa", "dunkin", "taco bell", "papa john", "mahindra first choice", "maruti", "hyundai", "tata motors", "greggs", "nando", "pret a manger", "wetherspoon", "pizza express", "toni & guy", "toni&guy", "supercuts",
           "specsavers", "pure gym", "the gym group", "bannatyne", "david lloyd", "nuffield", "bupa", "mydentist", "my dentist", "hair by sam mcknight",
-          "tim hortons", "krispy", "five guys", "wagamama", "zizzi", "prezzo", "bella italia", "harvester", "toby carvery", "tesco", "sainsbury")
+          "tim hortons", "krispy", "five guys", "wagamama", "zizzi", "prezzo", "bella italia", "harvester", "toby carvery", "tesco", "sainsbury", "oporto", "hungry jack", "guzman", "boost juice", "michel's", "gloria jean", "muffin break", "zambrero", "mad mex", "anytime", "jetts", "snap fitness", "plus fitness", "priceline", "chemist warehouse", "terry white", "just cuts", "lincraft")
 
 def query_for(lat, lon, r, keys):
     parts = []
+    nowebsite = '[!"website"][!"contact:website"][!"url"]'
     for key, vals in N.overpass_tags(CFG, keys).items():
-        parts.append(f'nwr(around:{r},{lat},{lon})["{key}"~"^({"|".join(vals)})$"]["name"]["phone"][!"website"][!"contact:website"][!"url"];')
+        base = f'nwr(around:{r},{lat},{lon})["{key}"~"^({"|".join(vals)})$"]["name"]'
+        parts.append(f'{base}["phone"]{nowebsite};')
+        parts.append(f'{base}["contact:phone"]{nowebsite};')
+        parts.append(f'{base}["contact:mobile"]{nowebsite};')
+        parts.append(f'{base}["contact:facebook"]{nowebsite};')   # Facebook-page businesses (no website)
+        parts.append(f'{base}["facebook"]{nowebsite};')
     return f"[out:json][timeout:90];({''.join(parts)});out center 400;"
 
 def fetch(q):
@@ -67,11 +73,25 @@ def is_chain(name):
     n = name.lower()
     return any(c in n for c in CHAINS)
 
+def fb_handle(t):
+    """Facebook page username / id from OSM tags (URL or bare handle) -> usable in https://m.me/<handle>."""
+    raw = (t.get("contact:facebook") or t.get("facebook") or "").strip()
+    if not raw: return None
+    m = re.search(r"profile\.php\?id=(\d+)", raw)
+    if m: return m.group(1)
+    if "facebook.com" in raw or "fb.com" in raw or "fb.me" in raw:
+        u = raw if raw.startswith("http") else "https://" + raw
+        seg = urllib.parse.urlparse(u).path.strip("/").split("/")[-1]
+    else:
+        seg = raw.lstrip("@").strip("/")
+    return seg if re.fullmatch(r"[A-Za-z0-9.\-_]{3,80}", seg or "") else None
+
 def migrate(leads):
     """Old leads (before niches) get niche/sub/live fields; landlines are dropped with their demo pages."""
     keep, dropped = [], 0
     for l in leads:
-        if not is_mobile(l["phone"], l["market"]):
+        ph = l.get("phone")
+        if not ((ph and is_mobile(ph, l["market"])) or l.get("fb")):
             dropped += 1
             if l.get("url"): shutil.rmtree("docs/s/" + l["url"].rstrip("/").split("/")[-1], ignore_errors=True)
             continue
@@ -119,9 +139,10 @@ def main():
                 t = e.get("tags", {})
                 nm = (t.get("name") or "").strip()
                 if len(nm) < 3 or is_chain(nm): continue
-                ph = norm_phone(t.get("phone", ""), market["cc"], mk)
+                ph = norm_phone(";".join(t.get(k, "") for k in ("phone", "contact:phone", "contact:mobile")), market["cc"], mk)
+                fb = fb_handle(t)
                 nk, sub = N.classify(t, CFG)
-                if not ph or nk not in by_niche: continue
+                if not (ph or fb) or nk not in by_niche: continue
                 lid = hashlib.md5(f'{e["type"]}{e["id"]}'.encode()).hexdigest()[:10]
                 if lid in seen: continue
                 seen.add(lid)
@@ -131,7 +152,7 @@ def main():
                     (t.get("addr:housenumber", "") + " " + t.get("addr:street", "")).strip(),
                     t.get("addr:suburb", ""), t.get("addr:city", name)] if x)
                 by_niche[nk].append({"id": lid, "name": nm[:80], "niche": nk, "sub": sub, "cat": sub, "city": name, "market": mk,
-                                     "phone": ph, "addr": addr, "hours": t.get("opening_hours", ""), "lat": la, "lon": lo,
+                                     "phone": ph, "fb": fb, "addr": addr, "hours": t.get("opening_hours", ""), "lat": la, "lon": lo,
                                      "live": True, "found": time.strftime("%Y-%m-%d")})
             time.sleep(5)
     # round-robin over niches so the daily batch stays balanced

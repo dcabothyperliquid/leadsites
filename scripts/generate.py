@@ -6,7 +6,7 @@ CFG = json.load(open("config.json"))
 OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
 USER, REPO = OWNER_REPO.split("/")
 BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "3"   # bump to rebuild every page + pitch
+VER = "4"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -54,7 +54,7 @@ TPL = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>{name} | {sub} in {city}</title>
-<meta name="description" content="{name} - {tag} Call or message us on WhatsApp.">
+<meta name="description" content="{name} - {tag} Call or message us.">
 <meta property="og:title" content="{name}"><meta property="og:description" content="{tag}">
 <meta name="theme-color" content="{c}">
 <script type="application/ld+json">{ld}</script>
@@ -88,14 +88,14 @@ section{{padding:38px 0 6px}}h2{{margin:0 0 16px;font-size:22px;color:var(--d)}}
 footer{{text-align:center;font-size:12px;color:#6b7280;padding:22px 16px 96px}}
 .fab{{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.28)}}
 </style></head><body>
-<div class="bar"><b>{emoji} {name}</b><a class="pill p-call" href="tel:+{phone}">Call</a></div>
+<div class="bar"><b>{emoji} {name}</b>{call_bar}</div>
 <div class="hero"><div class="em">{emoji}</div><span class="kick">{sublabel} · {city}</span>
 <h1>{name}</h1><p>{tag} {subline}</p>
-<div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a><a class="pill p-ghost" href="tel:+{phone}">📞 Call now</a></div></div>
+<div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a>{call_hero}</div></div>
 <div class="wrap">
 <section><h2>{svc_title}</h2><div class="grid">{items}</div><p class="note">Sample content for this preview. Your real services and prices go here once you approve.</p></section>
 <section><h2>Why customers love it</h2><div class="why">{why}</div></section>
-<section><h2>Visit us</h2><div class="info">{addr_row}{hours_row}<div class="row"><small>Phone</small><a href="tel:+{phone}">+{phone}</a></div></div>
+<section><h2>Visit us</h2><div class="info">{addr_row}{hours_row}{phone_row}</div>
 {map}<p style="margin:14px 0 0"><a class="pill p-ghost" href="{maps_url}" target="_blank" rel="noopener">📍 Open in Google Maps</a></p></section>
 </div>
 <div class="final"><h2>Ready when you are</h2><div class="cta"><a class="pill p-wa" href="{wa_url}">💬 {cta}</a></div></div>
@@ -106,7 +106,10 @@ footer{{text-align:center;font-size:12px;color:#6b7280;padding:22px 16px 96px}}
 def build_page(l):
     k = style_key(l); n = NICHE[k]
     name, city = html.escape(l["name"]), html.escape(l["city"])
-    wa_url = f'https://wa.me/{l["phone"]}?text=' + urllib.parse.quote(n["wa"].format(name=l["name"]))
+    ph = l.get("phone")
+    if ph: wa_url = f'https://wa.me/{ph}?text=' + urllib.parse.quote(n["wa"].format(name=l["name"]))
+    else:  wa_url = f'https://m.me/{l["fb"]}'
+    cta_txt = n["cta"] if ph else "Message us on Facebook"
     items = "".join(f'<div class="card"><i>{e}</i>{html.escape(t)}</div>' for e, t in n["items"])
     why = "".join(f'<div><i>{e}</i><p style="margin:0"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></p></div>' for e, t, d in n["why"])
     addr = l.get("addr", "")
@@ -122,11 +125,14 @@ def build_page(l):
     else:
         maps_url = "https://www.google.com/maps/search/" + urllib.parse.quote(f'{l["name"]} {addr} {l["city"]}')
         mp = ""
-    ld = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": l["name"], "telephone": "+" + l["phone"],
+    ld = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": l["name"], **({"telephone": "+" + ph} if ph else {}), 
           "address": {"@type": "PostalAddress", "streetAddress": addr, "addressLocality": l["city"]}}
     return TPL.format(name=name, city=city, sub=html.escape(l.get("sub") or l.get("cat", "")), sublabel=html.escape(l.get("sub") or l.get("cat", "")),
-                      tag=html.escape(n["tag"]), subline=html.escape(n["sub"]), cta=html.escape(n["cta"]), emoji=n["emoji"],
-                      c=n["c"], d=n["d"], l=n["l"], phone=l["phone"], wa_url=html.escape(wa_url), svc_title=html.escape(n["svc_title"]),
+                      tag=html.escape(n["tag"]), subline=html.escape(n["sub"]), cta=html.escape(cta_txt), emoji=n["emoji"],
+                      c=n["c"], d=n["d"], l=n["l"],
+                      call_bar=(f'<a class="pill p-call" href="tel:+{ph}">Call</a>' if ph else ""),
+                      call_hero=(f'<a class="pill p-ghost" href="tel:+{ph}">📞 Call now</a>' if ph else ""),
+                      phone_row=(f'<div class="row"><small>Phone</small><a href="tel:+{ph}">+{ph}</a></div>' if ph else ""), wa_url=html.escape(wa_url), svc_title=html.escape(n["svc_title"]),
                       items=items, why=why, addr_row=addr_row, hours_row=hours_row, map=mp, maps_url=html.escape(maps_url),
                       ld=json.dumps(ld, ensure_ascii=False).replace("</", "<\\/"))
 
@@ -149,7 +155,11 @@ BENEFIT_EN = {"salon": "clients can book straight on WhatsApp", "clinic": "patie
 def pitch(l, url):
     m = CFG["markets"][l["market"]]
     seller, price, cur = CFG["seller_name"], m["price"], m["currency"]
-    contact = f' {CFG["seller_contact"]}' if CFG.get("seller_contact") else ""
+    bits = []
+    if CFG.get("seller_wa"): bits.append(f'WhatsApp: https://wa.me/{CFG["seller_wa"]}')
+    if CFG.get("seller_fb"): bits.append(f'Facebook: https://m.me/{CFG["seller_fb"]}')
+    if CFG.get("seller_contact"): bits.append(CFG["seller_contact"])
+    contact = ("\n" + " | ".join(bits)) if bits else ""
     nk = l.get("niche") if l.get("niche") in BENEFIT_HI else "restaurant"
     if m["lang"] == "hinglish":
         return (f"Namaste! Main {seller} hoon, web developer. {l['name']} ke liye maine ek demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{url}\n"
@@ -157,6 +167,14 @@ def pitch(l, url):
     return (f"Hi! I'm {seller}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
             f"If you like it, I can put it live under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}\n"
             f"If you'd rather not hear from me, just say and I won't message again.")
+
+def reach(l, text):
+    """Primary outreach link + channel list. WhatsApp when a mobile exists, Facebook Messenger otherwise."""
+    ch = (["wa"] if l.get("phone") else []) + (["fb"] if l.get("fb") else [])
+    l["channels"] = ch
+    if l.get("fb"): l["fb_link"] = f'https://m.me/{l["fb"]}'
+    if l.get("phone"): return f'https://wa.me/{l["phone"]}?text=' + urllib.parse.quote(text)
+    return l["fb_link"]
 
 def main():
     leads = json.load(open("data/leads.json"))
@@ -170,13 +188,13 @@ def main():
         l["url"] = f"{BASE}/{s}/"
         l["ver"] = VER
         l["pitch"] = pitch(l, l["url"])
-        l["wa"] = f'https://wa.me/{l["phone"]}?text=' + urllib.parse.quote(l["pitch"])
+        l["wa"] = reach(l, l["pitch"])
         made += 1
     if os.environ.get("REGEN_PITCHES", "").lower() in ("1", "true", "yes"):   # seller name / price changed -> pitches only
         for l in leads:
             if l.get("url"):
                 l["pitch"] = pitch(l, l["url"])
-                l["wa"] = f'https://wa.me/{l["phone"]}?text=' + urllib.parse.quote(l["pitch"])
+                l["wa"] = reach(l, l["pitch"])
     json.dump(leads, open("data/leads.json", "w"), ensure_ascii=False, indent=0)
     open("docs/index.html", "w").write("<!doctype html><meta charset=utf-8><meta name=robots content=noindex><title>demo sites</title><p>Demo sites live under /s/</p>")
     print(f"GENERATED={made} TOTAL={len(leads)} LIVE={sum(1 for l in leads if l.get('live'))}")

@@ -1,6 +1,8 @@
 {
   "seller_name": "Naem",
   "seller_contact": "",
+  "seller_wa": "",
+  "seller_fb": "",
   "max_new_leads_per_run": 25,
   "radius_m": 9000,
   "enabled_cities": [],
@@ -322,8 +324,5 @@
   ],
   "rollout_start": "2026-11-19",
   "rollout_days": 14,
-  "active_markets": [
-    "UK",
-    "AE"
-  ]
+  "active_markets": ["UK", "AE", "AU"]
 }
