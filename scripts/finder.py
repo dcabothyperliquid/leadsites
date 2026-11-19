@@ -15,7 +15,9 @@ MIRRORS = ["https://overpass-api.de/api/interpreter",
 CHAINS = ("domino", "pizza hut", "mcdonald", "kfc", "burger king", "subway", "starbucks", "cafe coffee day", "barista", "haldiram",
           "wow! momo", "wow momo", "naturals", "lakme", "jawed habib", "green trends", "cult", "gold's gym", "golds gym", "anytime fitness",
           "apollo", "fortis", "clove dental", "sabka dentist", "theobroma", "baskin", "chaayos", "biryani by kilo", "behrouz", "faasos",
-          "starbucks", "costa", "dunkin", "taco bell", "papa john", "mahindra first choice", "maruti", "hyundai", "tata motors")
+          "starbucks", "costa", "dunkin", "taco bell", "papa john", "mahindra first choice", "maruti", "hyundai", "tata motors", "greggs", "nando", "pret a manger", "wetherspoon", "pizza express", "toni & guy", "toni&guy", "supercuts",
+          "specsavers", "pure gym", "the gym group", "bannatyne", "david lloyd", "nuffield", "bupa", "mydentist", "my dentist", "hair by sam mcknight",
+          "tim hortons", "krispy", "five guys", "wagamama", "zizzi", "prezzo", "bella italia", "harvester", "toby carvery", "tesco", "sainsbury")
 
 def query_for(lat, lon, r, keys):
     parts = []
@@ -50,6 +52,8 @@ def is_mobile(n, market):
     """WhatsApp works on mobiles only; landlines are skipped."""
     if market == "IN": return n.startswith("91") and len(n) == 12 and n[2] in "6789"
     if market == "AU": return n.startswith("614") and len(n) == 11
+    if market == "UK": return re.fullmatch(r"447[1-57-9]\d{8}", n) is not None      # 07xxx mobiles (not 070 personal / 076 pagers)
+    if market == "AE": return re.fullmatch(r"9715\d{8}", n) is not None             # 05x mobiles
     return True  # US numbers: cannot tell line type from the number
 
 def norm_phone(raw, cc, market):
@@ -82,11 +86,14 @@ def main():
     leads = json.load(open(LEADS_PATH)) if os.path.exists(LEADS_PATH) else []
     leads = migrate(leads)
     act = N.active_niches(CFG)
-    for l in leads: l["live"] = l.get("niche") in act
+    mkts = N.active_markets(CFG)
+    for l in leads: l["live"] = l.get("niche") in act and l.get("market") in mkts
     print("ACTIVE NICHES:", act)
     seen = {l["id"] for l in leads}
     cap = CFG["max_new_leads_per_run"]
-    allc = [(mk, c) for mk, m in CFG["markets"].items() for c in m["cities"]]
+    print("ACTIVE MARKETS:", mkts)
+    per_mk = [[(mk, c) for c in CFG["markets"][mk]["cities"]] for mk in mkts]
+    allc = [x for grp in zip(*per_mk) for x in grp] + [x for grp in per_mk for x in grp[min(map(len, per_mk)):]] if per_mk else []   # UK, AE, UK, AE ... (interleaved)
     only = os.environ.get("ONLY_CITY", "").strip().lower()
     enabled = [x.lower() for x in CFG.get("enabled_cities", [])]
     if only: allc = [x for x in allc if x[1][0].lower() == only]
@@ -136,7 +143,7 @@ def main():
     json.dump(leads, open(LEADS_PATH, "w"), ensure_ascii=False, indent=0)
     nxt, nd = N.next_niche(CFG)
     json.dump({"last_run": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "active": act,
-               "labels": {k: CFG["niches"][k]["label"] for k in CFG["niches"]},
+               "labels": {k: CFG["niches"][k]["label"] for k in CFG["niches"]}, "markets": mkts,
                "next_niche": nxt, "next_date": nd.isoformat() if nd else None,
                "cities_today": cities_today, "new_today": len(new)},
               open(META_PATH, "w"), ensure_ascii=False, indent=1)

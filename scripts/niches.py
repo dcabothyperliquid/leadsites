@@ -52,3 +52,6 @@ def overpass_tags(cfg, keys):
             out.setdefault(key, [])
             out[key] += [v for v in vals if v not in out[key]]
     return out
+
+def active_markets(cfg):
+    return [m for m in cfg.get("active_markets", list(cfg["markets"])) if m in cfg["markets"]]

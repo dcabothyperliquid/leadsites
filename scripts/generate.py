@@ -155,7 +155,8 @@ def pitch(l, url):
         return (f"Namaste! Main {seller} hoon, web developer. {l['name']} ke liye maine ek demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{url}\n"
                 f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath). Koi change chahiye toh bata dijiye.{contact}")
     return (f"Hi! I'm {seller}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
-            f"If you like it, I can put it live under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}")
+            f"If you like it, I can put it live under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}\n"
+            f"If you'd rather not hear from me, just say and I won't message again.")
 
 def main():
     leads = json.load(open("data/leads.json"))
