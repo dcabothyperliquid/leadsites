@@ -327,7 +327,7 @@ def pitch(l, url, url5=""):
     two = bool(url5)
     if m["lang"] == "hinglish":
         links = (f"1 page: {url}\n5 page (Pro): {url5}" if two else url)
-        cost = (f"Pasand aaye toh aapke naam se live kar dunga (domain/hosting setup ke saath): 1 page {cur}{price}" + (f", 5 page Pro {cur}{p5}" if p5 else "") + ".") if two else f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath)."
+        cost = (f"Pasand aaye toh aapki real photos aur details ke saath final kar dunga: 1 page {cur}{price}" + (f", 5 page Pro {cur}{p5}" if p5 else "") + ".") if two else f"Pasand aaye toh {cur}{price} mein aapki real photos aur details ke saath final kar dunga."
         return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{links}\n"
                 f"{cost} Koi change chahiye toh bata dijiye.{contact}")
     # English: human-style DM (varied hook per lead, price in USD, no seller WA link -- they are already chatting on WhatsApp)
@@ -339,9 +339,9 @@ def pitch(l, url, url5=""):
     intro = f"We're {brand}, we build websites for local businesses. We couldn't find one for you, so we made a quick demo where {BENEFIT_EN[nk]}:"
     links = (f"1-page: {url}\n5-page: {url5}" if two else url)
     if two:
-        cost = f"If you like one, we can put it live under your own name (domain & hosting setup included): ${price} for the 1-page or ${p5} for the 5-page (USD). Happy to change anything first, and no worries at all if it's not the right time."
+        cost = f"If you like one, we can finish it with your real photos and details: ${price} for the 1-page or ${p5} for the 5-page (USD). Happy to change anything first, and no worries at all if it's not the right time."
     else:
-        cost = f"If you like it, we can put it live under your own name (domain & hosting setup included) for ${price} (USD). Happy to change anything first, and no worries at all if it's not the right time."
+        cost = f"If you like it, we can finish it with your real photos and details for ${price} (USD). Happy to change anything first, and no worries at all if it's not the right time."
     return f"{hook} {intro}\n{links}\n{cost}\nA proper website builds trust and brings you new customers who search before they visit."
 
 def reach(l, text):
