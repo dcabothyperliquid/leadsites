@@ -132,7 +132,7 @@
     "AU": {
       "cc": "61",
       "currency": "A$",
-      "price": "199",
+      "price": "99",
       "lang": "en",
       "cities": [
         [
@@ -160,7 +160,7 @@
     "UK": {
       "cc": "44",
       "currency": "£",
-      "price": "199",
+      "price": "99",
       "lang": "en",
       "cities": [
         [
@@ -228,7 +228,7 @@
     "AE": {
       "cc": "971",
       "currency": "AED ",
-      "price": "599",
+      "price": "399",
       "lang": "en",
       "cities": [
         [

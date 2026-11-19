@@ -6,7 +6,7 @@ CFG = json.load(open("config.json"))
 OWNER_REPO = os.environ.get("GITHUB_REPOSITORY", "dcabothyperliquid/leadsites")
 USER, REPO = OWNER_REPO.split("/")
 BASE = f"https://{USER}.github.io/{REPO}/s"
-VER = "5"   # bump to rebuild every page + pitch
+VER = "6"   # bump to rebuild every page + pitch
 
 # ── per-niche content (sample content is labelled as such on the page) ──
 NICHE = {
@@ -166,7 +166,7 @@ def pitch(l, url):
         return (f"Namaste! Main {seller}, {brand} se, web developer hoon. {l['name']} ke liye maine ek demo website bana di hai jisse {BENEFIT_HI[nk]}:\n{url}\n"
                 f"Pasand aaye toh {cur}{price} mein aapke naam se live kar dunga (domain/hosting setup ke saath). Koi change chahiye toh bata dijiye.{contact}")
     return (f"Hi! I'm {seller} from {brand}, a web developer. I noticed {l['name']} doesn't have a website, so I built a quick demo where {BENEFIT_EN[nk]}:\n{url}\n"
-            f"If you like it, I can put it live under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}\n"
+            f"If you like it, I can put it live as a one-page site under your own name for {cur}{price} (domain & hosting setup included). Happy to tweak anything.{contact}\n"
             f"If you'd rather not hear from me, just say and I won't message again.")
 
 def reach(l, text):
