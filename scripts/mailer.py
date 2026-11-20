@@ -4,8 +4,10 @@ config.email.mode:
   off     nothing is sent.
   manual  ONLY what you approved in the Xbot Leads > Email tab is sent (table email_queue in Turso, subject/body exactly as you saw/edited them).
   auto    the bot sends drafts (data/email_drafts.json) to eligible email leads itself: chosen markets, local business hours Mon-Fri, small batches.
-Both modes: daily cap (config.email.daily_cap), one email per address ever, skips leads already touched in Xbot (status != new), skips Brevo-blocked
-addresses, every mail has a footer (who we are + reply STOP) and a List-Unsubscribe header. Follow-ups are never automatic.
+Both modes: daily cap (config.email.daily_cap), one email per address ever, skips Brevo-blocked addresses, every mail has a footer (who we are +
+reply STOP) and a List-Unsubscribe header. Follow-ups are never automatic.
+EMAIL IS INDEPENDENT of WhatsApp/Messenger: the same customer can get both. This script never reads or writes leads_status (the WhatsApp/FB tracker);
+email has its own state in email_queue (approved / sent / failed / skip / replied / interested / sold / unsub) + data/outbox.json.
 
 Env (GitHub secrets): BREVO_API_KEY (or SMTP_HOST/SMTP_PORT/SMTP_USER/SMTP_PASS) + MAIL_FROM [MAIL_FROM_NAME, MAIL_REPLY_TO]; TURSO_URL + TURSO_TOKEN; GROQ_API_KEY (drafts only)
 Inputs: DRY_RUN=true -> print 3 drafts, send nothing | TEST_TO=addr -> send ONE draft to that address, no records."""
@@ -20,7 +22,7 @@ LEADS, OUTBOX, DRAFTS = "data/leads.json", "data/outbox.json", "data/email_draft
 E = CFG.get("email", {})
 TZ = {"AU": "Australia/Melbourne", "AE": "Asia/Dubai", "UK": "Europe/London", "IN": "Asia/Kolkata", "US": "America/New_York"}
 PER_RUN_AUTO = 5
-PENDING_TTL = 48 * 3600
+DONE = {"sent", "skip", "replied", "interested", "sold", "unsub"}   # email_queue statuses = this lead is finished for email
 env = lambda k: (os.environ.get(k) or "").strip()
 DRY, TEST_TO = env("DRY_RUN").lower() in ("1", "true", "yes"), env("TEST_TO")
 MODE = E.get("mode") or ("auto" if E.get("enabled") else "off")
@@ -43,13 +45,6 @@ def turso(sql, args=()):
     rs = res["response"]["result"]
     cols = [c["name"] for c in rs.get("cols", [])]
     return [{c: (cell.get("value") if cell.get("type") != "null" else None) for c, cell in zip(cols, row)} for row in rs.get("rows", [])]
-
-
-def ts(v):
-    try:
-        return datetime.datetime.strptime(v, "%Y-%m-%d %H:%M:%S").replace(tzinfo=datetime.timezone.utc).timestamp() if v else 0
-    except ValueError:
-        return 0
 
 
 # ── sending ──────────────────────────────────────────────────────────────
@@ -106,12 +101,6 @@ def in_window(mk, now_utc):
     return (loc.weekday() < 5 or not E.get("weekdays_only", True)) and h0 <= loc.hour < h1
 
 
-def touched(s, now):
-    """Lead already handled in Xbot (any status but new, any contact, or a copy-pending pitch)."""
-    return bool(s) and ((s.get("status") or "new") != "new" or int(s.get("contacts") or 0) > 0
-                        or (s.get("pending_at") and now.timestamp() - ts(s["pending_at"]) < PENDING_TTL))
-
-
 def main():
     now = datetime.datetime.now(datetime.timezone.utc)
     testing = DRY or bool(TEST_TO)
@@ -127,10 +116,10 @@ def main():
     outbox = json.load(open(OUTBOX)) if os.path.exists(OUTBOX) else {}
     drafts = json.load(open(DRAFTS)) if os.path.exists(DRAFTS) else {}
     have_turso = bool(env("TURSO_URL") and env("TURSO_TOKEN"))
-    st = {}
+    qdone = set()   # leads finished for EMAIL (sent / skipped / replied ...) -- WhatsApp status is deliberately ignored
     if have_turso:
         turso("CREATE TABLE IF NOT EXISTS email_queue (id TEXT PRIMARY KEY, subject TEXT, body TEXT, status TEXT, err TEXT, updated_at TEXT)")
-        st = {r["id"]: r for r in turso("SELECT id, status, contacts, pending_at FROM leads_status")}
+        qdone = {r["id"] for r in turso("SELECT id, status FROM email_queue") if (r.get("status") or "") in DONE}
     sent_addr = {(o.get("to") or "").lower() for o in outbox.values()} | brevo_blocked()
     today = now.strftime("%Y-%m-%d")
     room = max(0, int(E.get("daily_cap", 15)) - sum(1 for o in outbox.values() if (o.get("at") or "")[:10] == today))
@@ -139,7 +128,8 @@ def main():
 
     def elig(l):
         em = (l.get("email") or "").lower()
-        return bool(em and l.get("live") and l.get("url") and not l.get("expired") and l["market"] in mks and l["id"] not in outbox and em not in sent_addr)
+        return bool(em and l.get("live") and l.get("url") and not l.get("expired") and l["market"] in mks and l["id"] not in outbox
+                    and l["id"] not in qdone and em not in sent_addr)
 
     def draft_of(l):
         d = drafts.get(l["id"])
@@ -149,7 +139,7 @@ def main():
 
     # ── test / dry ──
     if testing:
-        pool = [l for l in leads if elig(l) and not touched(st.get(l["id"]), now)]
+        pool = [l for l in leads if elig(l)]
         print(f"  eligible leads: {len(pool)}")
         for l in pool[:3 if DRY else 1]:
             subj, body, ai = draft_of(l)
@@ -170,7 +160,6 @@ def main():
             err = None
             if not l: err = "lead nahi mili"
             elif not elig(l): err = "ab eligible nahi (email/market/pehle bheja)"
-            elif touched(st.get(l["id"]), now): err = "status Xbot me badal gaya"
             elif l["url"] not in (r.get("body") or ""): err = "body me demo link nahi"
             if err:
                 turso("UPDATE email_queue SET status='failed', err=?, updated_at=? WHERE id=?", [err, time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), r["id"]])
@@ -179,7 +168,7 @@ def main():
         jobs = jobs[:room]
         gap = (8, 20)
     else:
-        cand = [l for l in leads if elig(l) and not touched(st.get(l["id"]), now) and in_window(l["market"], now)]
+        cand = [l for l in leads if elig(l) and in_window(l["market"], now)]
         random.shuffle(cand)
         print(f"  eligible now: {len(cand)}")
         jobs = [(l,) + draft_of(l) for l in cand[:min(PER_RUN_AUTO, room)]]
@@ -204,9 +193,6 @@ def main():
         json.dump(outbox, open(OUTBOX, "w"), ensure_ascii=False, indent=0)
         stamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         try:
-            turso("INSERT INTO leads_status (id, status, note, updated_at, sent_at, contacts) VALUES (?, 'sent', 'email', ?, ?, 1) "
-                  "ON CONFLICT(id) DO UPDATE SET status='sent', note='email', updated_at=excluded.updated_at, sent_at=excluded.sent_at, contacts=COALESCE(contacts,0)+1",
-                  [l["id"], stamp, stamp])
             turso("INSERT INTO email_queue (id, subject, body, status, err, updated_at) VALUES (?, ?, ?, 'sent', NULL, ?) "
                   "ON CONFLICT(id) DO UPDATE SET status='sent', err=NULL, updated_at=excluded.updated_at", [l["id"], subj, body, stamp])
         except Exception as e:
