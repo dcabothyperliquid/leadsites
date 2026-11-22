@@ -1,0 +1,350 @@
+{
+ "seller_name": "Naem",
+ "brand": "Naem Studio",
+ "seller_contact": "",
+ "seller_wa": "917522805545",
+ "seller_fb": "",
+ "demo_days": 120,
+ "max_new_leads_per_run": 30,
+ "radius_m": 9000,
+ "enabled_cities": [],
+ "markets": {
+  "IN": {
+   "cc": "91",
+   "currency": "₹",
+   "price": "2,500",
+   "lang": "hinglish",
+   "cities": [
+    [
+     "Mumbai",
+     19.076,
+     72.8777
+    ],
+    [
+     "Delhi",
+     28.6139,
+     77.209
+    ],
+    [
+     "Bengaluru",
+     12.9716,
+     77.5946
+    ],
+    [
+     "Pune",
+     18.5204,
+     73.8567
+    ],
+    [
+     "Hyderabad",
+     17.385,
+     78.4867
+    ],
+    [
+     "Lucknow",
+     26.8467,
+     80.9462
+    ],
+    [
+     "Jaipur",
+     26.9124,
+     75.7873
+    ],
+    [
+     "Ahmedabad",
+     23.0225,
+     72.5714
+    ],
+    [
+     "Kanpur",
+     26.4499,
+     80.3319
+    ],
+    [
+     "Patna",
+     25.5941,
+     85.1376
+    ],
+    [
+     "Bhopal",
+     23.2599,
+     77.4126
+    ],
+    [
+     "Kota",
+     25.2138,
+     75.8648
+    ],
+    [
+     "Indore",
+     22.7196,
+     75.8577
+    ],
+    [
+     "Nagpur",
+     21.1458,
+     79.0882
+    ],
+    [
+     "Surat",
+     21.1702,
+     72.8311
+    ],
+    [
+     "Chandigarh",
+     30.7333,
+     76.7794
+    ]
+   ]
+  },
+  "US": {
+   "cc": "1",
+   "currency": "$",
+   "price": "99",
+   "lang": "en",
+   "cities": [
+    [
+     "Austin",
+     30.2672,
+     -97.7431
+    ],
+    [
+     "Houston",
+     29.7604,
+     -95.3698
+    ],
+    [
+     "Phoenix",
+     33.4484,
+     -112.074
+    ],
+    [
+     "Atlanta",
+     33.749,
+     -84.388
+    ],
+    [
+     "Miami",
+     25.7617,
+     -80.1918
+    ]
+   ],
+   "price5": "255"
+  },
+  "AU": {
+   "cc": "61",
+   "currency": "A$",
+   "price": "149",
+   "lang": "en",
+   "cities": [
+    [
+     "Sydney",
+     -33.8688,
+     151.2093
+    ],
+    [
+     "Melbourne",
+     -37.8136,
+     144.9631
+    ],
+    [
+     "Brisbane",
+     -27.4698,
+     153.0251
+    ],
+    [
+     "Perth",
+     -31.9505,
+     115.8605
+    ]
+   ],
+   "price5": "379"
+  },
+  "UK": {
+   "cc": "44",
+   "currency": "£",
+   "price": "79",
+   "lang": "en",
+   "cities": [
+    [
+     "London",
+     51.5074,
+     -0.1278
+    ],
+    [
+     "Manchester",
+     53.4808,
+     -2.2426
+    ],
+    [
+     "Birmingham",
+     52.4862,
+     -1.8904
+    ],
+    [
+     "Leeds",
+     53.8008,
+     -1.5491
+    ],
+    [
+     "Glasgow",
+     55.8642,
+     -4.2518
+    ],
+    [
+     "Bristol",
+     51.4545,
+     -2.5879
+    ],
+    [
+     "Liverpool",
+     53.4084,
+     -2.9916
+    ],
+    [
+     "Edinburgh",
+     55.9533,
+     -3.1883
+    ],
+    [
+     "Sheffield",
+     53.3811,
+     -1.4701
+    ],
+    [
+     "Cardiff",
+     51.4816,
+     -3.1791
+    ],
+    [
+     "Nottingham",
+     52.9548,
+     -1.1581
+    ],
+    [
+     "Leicester",
+     52.6369,
+     -1.1398
+    ]
+   ],
+   "price5": "199"
+  },
+  "AE": {
+   "cc": "971",
+   "currency": "AED ",
+   "price": "349",
+   "lang": "en",
+   "cities": [
+    [
+     "Dubai",
+     25.2048,
+     55.2708
+    ],
+    [
+     "Abu Dhabi",
+     24.4539,
+     54.3773
+    ],
+    [
+     "Sharjah",
+     25.3463,
+     55.4209
+    ],
+    [
+     "Ajman",
+     25.4052,
+     55.5136
+    ]
+   ],
+   "price5": "899"
+  }
+ },
+ "cities_per_run": 4,
+ "niches": {
+  "salon": {
+   "label": "Salon & Beauty",
+   "tags": {
+    "shop": {
+     "hairdresser": "Salon",
+     "beauty": "Beauty Studio"
+    }
+   }
+  },
+  "clinic": {
+   "label": "Clinic & Dental",
+   "tags": {
+    "amenity": {
+     "dentist": "Dental Clinic",
+     "clinic": "Clinic",
+     "doctors": "Doctor Clinic"
+    }
+   }
+  },
+  "restaurant": {
+   "label": "Restaurant & Cafe",
+   "tags": {
+    "amenity": {
+     "restaurant": "Restaurant",
+     "cafe": "Cafe",
+     "fast_food": "Fast Food"
+    }
+   }
+  },
+  "garage": {
+   "label": "Garage & Auto Repair",
+   "tags": {
+    "shop": {
+     "car_repair": "Auto Repair"
+    }
+   }
+  },
+  "gym": {
+   "label": "Gym & Fitness",
+   "tags": {
+    "leisure": {
+     "fitness_centre": "Gym"
+    },
+    "amenity": {
+     "gym": "Gym"
+    }
+   }
+  },
+  "bakery": {
+   "label": "Bakery & Cakes",
+   "tags": {
+    "shop": {
+     "bakery": "Bakery"
+    }
+   }
+  }
+ },
+ "active_niches": [
+  "salon",
+  "clinic",
+  "restaurant"
+ ],
+ "queue": [],
+ "rollout_start": "2026-11-19",
+ "rollout_days": 14,
+ "active_markets": [
+  "UK",
+  "AE",
+  "AU"
+ ],
+ "site_url": "https://naemstudio.github.io",
+ "email": {
+  "mode": "manual",
+  "markets": [
+   "AU",
+   "AE"
+  ],
+  "daily_cap": 20,
+  "hours": [
+   9,
+   16
+  ],
+  "weekdays_only": true,
+  "address": "",
+  "style_note": ""
+ }
+}

@@ -1,0 +1,201 @@
+"""Lead finder. Runs on GitHub Actions only (nothing runs on Render). NEW leads are added by the DAILY scheduled run (SCAN=true) and by the manual scan button in the Xbot
+Leads tab -- together max `max_new_leads_per_run` (=30) per UTC day. Push-triggered runs only refresh existing leads.
+
+* Only the ACTIVE niches are searched (start: salon, clinic, restaurant; the queue adds one every rollout_days).
+* Few cities per run (rotating daily, tier-2 cities included) -> polite to Overpass, steady flow of fresh leads.
+* Only businesses with a name + (WhatsApp-capable mobile number and/or Facebook page) and NO website. Known chains are skipped.
+* Interleaves niches so one niche can't flood the daily batch."""
+import json, re, time, hashlib, urllib.request, urllib.parse, os, shutil
+import niches as N
+import emailutil as U
+
+CFG = json.load(open("config.json"))
+LEADS_PATH, META_PATH = "data/leads.json", "data/meta.json"
+MIRRORS = ["https://overpass-api.de/api/interpreter",
+           "https://overpass.kumi.systems/api/interpreter",
+           "https://overpass.private.coffee/api/interpreter"]
+CHAINS = ("domino", "pizza hut", "mcdonald", "kfc", "burger king", "subway", "starbucks", "cafe coffee day", "barista", "haldiram",
+          "wow! momo", "wow momo", "naturals", "lakme", "jawed habib", "green trends", "cult", "gold's gym", "golds gym", "anytime fitness",
+          "apollo", "fortis", "clove dental", "sabka dentist", "theobroma", "baskin", "chaayos", "biryani by kilo", "behrouz", "faasos",
+          "starbucks", "costa", "dunkin", "taco bell", "papa john", "mahindra first choice", "maruti", "hyundai", "tata motors", "greggs", "nando", "pret a manger", "wetherspoon", "pizza express", "toni & guy", "toni&guy", "supercuts",
+          "specsavers", "pure gym", "the gym group", "bannatyne", "david lloyd", "nuffield", "bupa", "mydentist", "my dentist", "hair by sam mcknight",
+          "tim hortons", "krispy", "five guys", "wagamama", "zizzi", "prezzo", "bella italia", "harvester", "toby carvery", "tesco", "sainsbury", "oporto", "hungry jack", "guzman", "boost juice", "michel's", "gloria jean", "muffin break", "zambrero", "mad mex", "anytime", "jetts", "snap fitness", "plus fitness", "priceline", "chemist warehouse", "terry white", "just cuts", "lincraft")
+
+def query_for(lat, lon, r, keys):
+    parts = []
+    nowebsite = '[!"website"][!"contact:website"][!"url"]'
+    for key, vals in N.overpass_tags(CFG, keys).items():
+        base = f'nwr(around:{r},{lat},{lon})["{key}"~"^({"|".join(vals)})$"]["name"]'
+        parts.append(f'{base}["phone"]{nowebsite};')
+        parts.append(f'{base}["contact:phone"]{nowebsite};')
+        parts.append(f'{base}["contact:mobile"]{nowebsite};')
+        parts.append(f'{base}["contact:facebook"]{nowebsite};')   # Facebook-page businesses (no website)
+        parts.append(f'{base}["facebook"]{nowebsite};')
+    return f"[out:json][timeout:90];({''.join(parts)});out center 400;"
+
+def fetch(q):
+    data = urllib.parse.urlencode({"data": q}).encode()
+    for m in MIRRORS:
+        for attempt in range(2):
+            try:
+                req = urllib.request.Request(m, data=data, headers={"User-Agent": "leadsites-bot/1.0 (github actions)"})
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    return json.load(r)["elements"]
+            except Exception as e:
+                print(f"  mirror {m.split('/')[2]} attempt {attempt+1} failed: {type(e).__name__} {str(e)[:80]}")
+                time.sleep(8)
+    return []
+
+def to_intl(p, cc):
+    plus = p.startswith("+")
+    d = re.sub(r"\D", "", p)
+    if not d: return None
+    if plus: n = d
+    elif d.startswith("00"): n = d[2:]
+    elif d.startswith(cc) and len(d) > 10: n = d
+    else: n = cc + d.lstrip("0")
+    return n if 10 <= len(n) <= 13 else None
+
+def is_mobile(n, market):
+    """WhatsApp works on mobiles only; landlines are skipped."""
+    if market == "IN": return n.startswith("91") and len(n) == 12 and n[2] in "6789"
+    if market == "AU": return n.startswith("614") and len(n) == 11
+    if market == "UK": return re.fullmatch(r"447[1-57-9]\d{8}", n) is not None      # 07xxx mobiles (not 070 personal / 076 pagers)
+    if market == "AE": return re.fullmatch(r"9715\d{8}", n) is not None             # 05x mobiles
+    return True  # US numbers: cannot tell line type from the number
+
+def norm_phone(raw, cc, market):
+    """First WhatsApp-capable number among all numbers listed on the place."""
+    for p in re.split(r"[;,/]", raw):
+        n = to_intl(p.strip(), cc)
+        if n and is_mobile(n, market): return n
+    return None
+
+def is_chain(name):
+    n = name.lower()
+    return any(c in n for c in CHAINS)
+
+def fb_handle(t):
+    """Facebook page username / id from OSM tags (URL or bare handle) -> usable in https://m.me/<handle>."""
+    raw = (t.get("contact:facebook") or t.get("facebook") or "").strip()
+    if not raw: return None
+    m = re.search(r"profile\.php\?id=(\d+)", raw)
+    if m: return m.group(1)
+    if "facebook.com" in raw or "fb.com" in raw or "fb.me" in raw:
+        u = raw if raw.startswith("http") else "https://" + raw
+        seg = urllib.parse.urlparse(u).path.strip("/").split("/")[-1]
+    else:
+        seg = raw.lstrip("@").strip("/")
+    return seg if re.fullmatch(r"[A-Za-z0-9.\-_]{3,80}", seg or "") else None
+
+def migrate(leads):
+    """Old leads (before niches) get niche/sub/live fields; landlines are dropped with their demo pages."""
+    keep, dropped = [], 0
+    for l in leads:
+        ph = l.get("phone")
+        if not ((ph and is_mobile(ph, l["market"])) or l.get("fb")):
+            dropped += 1
+            if l.get("url"): shutil.rmtree(os.path.join(os.environ.get("SITE_DIR", "site"), "d", l["url"].rstrip("/").split("/")[-1]), ignore_errors=True)
+            continue
+        if "niche" not in l:
+            l["sub"] = l.get("cat", "")
+            l["niche"] = N.LEGACY.get(l["sub"])
+        keep.append(l)
+    if dropped: print(f"CLEAN dropped={dropped}")
+    return keep
+
+def main():
+    leads = json.load(open(LEADS_PATH)) if os.path.exists(LEADS_PATH) else []
+    leads = migrate(leads)
+    act = N.active_niches(CFG)
+    mkts = N.active_markets(CFG)
+    for l in leads: l["live"] = l.get("niche") in act and l.get("market") in mkts and not l.get("expired")
+    print("ACTIVE NICHES:", act)
+    seen = {l["id"] for l in leads}
+    SCAN = os.environ.get("SCAN", "").strip().lower() in ("1", "true", "yes")
+    prev = json.load(open(META_PATH)) if os.path.exists(META_PATH) else {}
+    day_s = time.strftime("%Y-%m-%d", time.gmtime())
+    done_today = int(prev.get("scan_count", 0)) if prev.get("scan_day") == day_s else 0
+    cap = max(0, CFG["max_new_leads_per_run"] - done_today) if SCAN else 0     # daily limit: 30 new leads per day via scan
+    print(f"SCAN={SCAN} done_today={done_today} cap={cap}")
+    print("ACTIVE MARKETS:", mkts)
+    per_mk = [[(mk, c) for c in CFG["markets"][mk]["cities"]] for mk in mkts]
+    allc = [x for grp in zip(*per_mk) for x in grp] + [x for grp in per_mk for x in grp[min(map(len, per_mk)):]] if per_mk else []   # UK, AE, UK, AE ... (interleaved)
+    only = os.environ.get("ONLY_CITY", "").strip().lower()
+    enabled = [x.lower() for x in CFG.get("enabled_cities", [])]
+    if only: allc = [x for x in allc if x[1][0].lower() == only]
+    elif enabled: allc = [x for x in allc if x[1][0].lower() in enabled]
+    cities_today = []
+    by_niche = {k: [] for k in act}
+    seq = int(prev.get("scan_seq", int(time.time() // 86400)))
+    if not SCAN:
+        print("NO SCAN (push run) -- existing leads refreshed, no new leads added")
+    elif cap <= 0:
+        print("DAILY SCAN LIMIT reached -- no new leads today")
+    elif not allc:
+        print("NO CITY MATCHED (check ONLY_CITY / enabled_cities)")
+    else:
+        per = max(1, CFG.get("cities_per_run", 4))
+        order = [allc[(seq * per + i) % len(allc)] for i in range(min(per, len(allc)))]
+        if only: order = allc[:1]
+        for mk, c in order:
+            mk_in_run = {x[0] for x in order}
+            cnt = {m: sum(1 for v in by_niche.values() for l in v if l["market"] == m) for m in mk_in_run}
+            if cnt and all(c >= -(-cap // len(mk_in_run)) * 2 for c in cnt.values()): break      # every country has enough candidates
+            market = CFG["markets"][mk]
+            name, lat, lon = c
+            cities_today.append(name)
+            print(f"== {mk} {name}")
+            els = fetch(query_for(lat, lon, CFG["radius_m"], act))
+            print(f"  {len(els)} raw elements")
+            for e in els:
+                t = e.get("tags", {})
+                nm = (t.get("name") or "").strip()
+                if len(nm) < 3 or is_chain(nm): continue
+                ph = norm_phone(";".join(t.get(k, "") for k in ("phone", "contact:phone", "contact:mobile")), market["cc"], mk)
+                fb = fb_handle(t)
+                nk, sub = N.classify(t, CFG)
+                em = U.clean_email(t.get("email") or t.get("contact:email") or "")
+                if not (ph or fb) or nk not in by_niche: continue
+                lid = hashlib.md5(f'{e["type"]}{e["id"]}'.encode()).hexdigest()[:10]
+                if lid in seen: continue
+                seen.add(lid)
+                ctr = e.get("center") or {}
+                la, lo = e.get("lat", ctr.get("lat")), e.get("lon", ctr.get("lon"))
+                addr = ", ".join(x for x in [
+                    (t.get("addr:housenumber", "") + " " + t.get("addr:street", "")).strip(),
+                    t.get("addr:suburb", ""), t.get("addr:city", name)] if x)
+                by_niche[nk].append({"id": lid, "name": nm[:80], "niche": nk, "sub": sub, "cat": sub, "city": name, "market": mk,
+                                     "phone": ph, "fb": fb, "addr": addr, "hours": t.get("opening_hours", ""), "lat": la, "lon": lo,
+                                     "live": True, "found": time.strftime("%Y-%m-%d"),
+                                     **({"email": em, "email_src": "osm"} if em else {}), "email_checked": time.strftime("%Y-%m-%d")})
+            time.sleep(5)
+    # round-robin over niches so the daily batch stays balanced
+    # balanced pick: round-robin over countries (and niches inside each country), so 30 = ~10 per country; short country -> others fill
+    per_m = {}
+    for k in act:
+        for l in by_niche[k]: per_m.setdefault(l["market"], {}).setdefault(k, []).append(l)
+    new, i = [], 0
+    while len(new) < cap and any(v for d in per_m.values() for v in d.values()):
+        for m in list(per_m):
+            if len(new) >= cap: break
+            d = per_m[m]; ks = [k for k in act if d.get(k)]
+            if ks: new.append(d[ks[len(new) % len(ks)]].pop(0))
+    leads = new + leads
+    json.dump(leads, open(LEADS_PATH, "w"), ensure_ascii=False, indent=0)
+    nxt, nd = N.next_niche(CFG)
+    json.dump({"last_run": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "active": act,
+               "labels": {k: CFG["niches"][k]["label"] for k in CFG["niches"]}, "markets": mkts,
+               "next_niche": nxt, "next_date": nd.isoformat() if nd else None,
+               "cities_today": cities_today if SCAN else prev.get("cities_today", []),
+               "new_today": (done_today + len(new)) if SCAN else (done_today if prev.get("scan_day") == day_s else 0),
+               "scan_day": day_s if (SCAN or prev.get("scan_day") == day_s) else prev.get("scan_day", ""),
+               "scan_count": (done_today + len(new)) if SCAN else int(prev.get("scan_count", 0)),
+               "scan_limit": CFG["max_new_leads_per_run"],
+               "scan_seq": seq + 1 if SCAN and cap > 0 else seq,
+               "last_scan": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()) if SCAN else prev.get("last_scan", "")},
+              open(META_PATH, "w"), ensure_ascii=False, indent=1)
+    print(f"NEW={len(new)} TOTAL={len(leads)} LIVE={sum(1 for l in leads if l.get('live'))}")
+
+if __name__ == "__main__":
+    main()

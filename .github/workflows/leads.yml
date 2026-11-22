@@ -1,0 +1,117 @@
+name: Find leads + build demo sites
+
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/**", "config.json"]
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+    inputs:
+      only_city:
+        description: "Only this city (e.g. Pune). Empty = config enabled_cities / all"
+        required: false
+        default: ""
+      manual_name:
+        description: "MANUAL DEMO: business name (leave empty for normal run)"
+        required: false
+        default: ""
+      manual_niche:
+        description: "salon | clinic | restaurant"
+        required: false
+        default: "salon"
+      manual_city:
+        description: "City"
+        required: false
+        default: ""
+      manual_market:
+        description: "UK | AE | AU | US | IN"
+        required: false
+        default: "UK"
+      manual_phone:
+        description: "Business mobile (with or without country code)"
+        required: false
+        default: ""
+      manual_fb:
+        description: "Business Facebook page URL or username"
+        required: false
+        default: ""
+      regen_pitches:
+        description: "Rebuild pitch + WhatsApp links for all leads"
+        required: false
+        type: boolean
+        default: false
+      scan:
+        description: "SCAN: find NEW leads now (extra, max 30 per day in total with the daily auto scan)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency: leads
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out the Naem Studio site (demos are published there)
+        uses: actions/checkout@v4
+        with:
+          repository: naemstudio/naemstudio.github.io
+          token: ${{ secrets.SITE_TOKEN }}
+          path: site
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Find leads
+        env:
+          ONLY_CITY: ${{ github.event.inputs.only_city }}
+          SCAN: ${{ github.event_name == 'schedule' && 'true' || github.event.inputs.scan }}
+          SITE_DIR: site
+        run: python scripts/finder.py
+      - name: Manual demo (only if a name was given)
+        if: ${{ github.event.inputs.manual_name != '' }}
+        env:
+          M_NAME: ${{ github.event.inputs.manual_name }}
+          M_NICHE: ${{ github.event.inputs.manual_niche }}
+          M_CITY: ${{ github.event.inputs.manual_city }}
+          M_MARKET: ${{ github.event.inputs.manual_market }}
+          M_PHONE: ${{ github.event.inputs.manual_phone }}
+          M_FB: ${{ github.event.inputs.manual_fb }}
+          SITE_DIR: site
+        run: python scripts/manual.py
+      - name: Generate demo sites
+        env:
+          REGEN_PITCHES: ${{ github.event.inputs.regen_pitches }}
+          SITE_DIR: site
+        run: python scripts/generate.py | tee /tmp/gen.log
+      - name: Publish demos to naemstudio.github.io
+        run: |
+          cd site
+          git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A d
+          git diff --cached --quiet && echo "site: nothing new" && exit 0
+          git commit -qm "demos: $(date -u +%F)"
+          git pull --rebase -q || true
+          git push
+      - name: Commit
+        run: |
+          git config user.name "leadsites-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "nothing new" && exit 0
+          git commit -qm "leads: $(date -u +%F)"
+          # Sundays, or whenever demos were just deleted: squash history so deleted pages/old data do not stay in git history
+          if [ "$(date -u +%u)" = "7" ] || grep -q "^EXPIRED" /tmp/gen.log; then
+            git checkout -q --orphan squashed
+            git add -A
+            git commit -qm "leads: $(date -u +%F) (history squashed)"
+            git branch -M main
+            git push -f origin main
+          else
+            git pull --rebase -q || true
+            git push
+          fi
