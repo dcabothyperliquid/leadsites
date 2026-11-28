@@ -1,5 +1,5 @@
 {
- "last_run": "2026-11-27 13:02 UTC",
+ "last_run": "2026-11-28 12:16 UTC",
  "active": [
   "salon",
   "clinic",
@@ -21,14 +21,15 @@
  "next_niche": null,
  "next_date": null,
  "cities_today": [
-  "Sheffield",
-  "Cardiff",
-  "Nottingham"
+  "London",
+  "Dubai",
+  "Sydney",
+  "Manchester"
  ],
  "new_today": 30,
- "scan_day": "2026-11-27",
+ "scan_day": "2026-11-28",
  "scan_count": 30,
  "scan_limit": 30,
- "scan_seq": 20785,
- "last_scan": "2026-11-27 13:02 UTC"
+ "scan_seq": 20786,
+ "last_scan": "2026-11-28 12:16 UTC"
 }
